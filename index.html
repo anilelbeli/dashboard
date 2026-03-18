@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arabam.com — Analytics Dashboard v3</title>
@@ -54,8 +55,64 @@ tr.ck{cursor:pointer}tr.ck:hover td{background:rgba(91,154,255,.08)}tr.sel td{ba
 .chip:hover{border-color:var(--ac);color:var(--t2)}.chip.active{border-color:var(--ac);background:var(--adim);color:var(--ac)}
 .note{font-size:10px;color:var(--t3);margin-bottom:8px;font-style:italic}
 </style>
+
+<style>
+/* Login overlay */
+#login-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity .4s, visibility .4s;
+}
+#login-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.login-box {
+  background: var(--s1); border: 1px solid var(--b1); border-radius: 12px;
+  padding: 40px 36px; width: 360px; max-width: 90vw; text-align: center;
+}
+.login-box .logo { font-size: 22px; font-weight: 700; margin-bottom: 6px; letter-spacing: -.3px; }
+.login-box .logo span { color: var(--t3); font-weight: 400; }
+.login-box .sub { font-size: 12px; color: var(--t3); margin-bottom: 28px; }
+.login-box input {
+  width: 100%; background: var(--s2); color: var(--t1); border: 1px solid var(--b1);
+  border-radius: 6px; padding: 12px 14px; font-size: 13px; font-family: inherit;
+  margin-bottom: 12px; text-align: center; letter-spacing: 1px;
+}
+.login-box input:focus { outline: none; border-color: var(--ac); }
+.login-box input::placeholder { color: var(--t3); letter-spacing: 0; }
+.login-btn {
+  width: 100%; padding: 12px; background: var(--ac); color: #fff; border: none;
+  border-radius: 6px; font-size: 13px; font-weight: 600; font-family: inherit;
+  cursor: pointer; transition: background .2s;
+}
+.login-btn:hover { background: #4a82e6; }
+.login-error {
+  color: var(--r); font-size: 11px; margin-top: 10px; min-height: 16px;
+  transition: opacity .2s;
+}
+.login-footer { font-size: 10px; color: var(--t3); margin-top: 20px; }
+
+/* Hide main content until authenticated */
+#main-app { display: none; }
+#main-app.visible { display: block; }
+</style>
 </head>
 <body>
+
+<!-- LOGIN SCREEN -->
+<div id="login-overlay">
+  <div class="login-box">
+    <div class="logo">arabam.com <span>Analytics</span></div>
+    <div class="sub">Dashboard erişimi için giriş yapın</div>
+    <input type="password" id="login-pw" placeholder="Şifre" autofocus autocomplete="off">
+    <button class="login-btn" id="login-btn">Giriş</button>
+    <div class="login-error" id="login-err"></div>
+    <div class="login-footer">ChoraLabs — Internal Use Only</div>
+  </div>
+</div>
+
+<!-- MAIN DASHBOARD (hidden until auth) -->
+<div id="main-app">
+
 <div class="hdr"><h1>arabam.com <span style="color:var(--t3);font-weight:400">Analytics</span></h1><span class="badge">v3.0 — Haz 2025 – Mar 2026</span></div>
 <div class="gf">
 <div class="gf-g"><label>Platform</label><select id="f-plat"><option value="all">Tüm Platformlar</option><option>Android</option><option>iOS</option><option>web</option></select></div>
@@ -255,5 +312,48 @@ document.getElementById('f-ch').onchange=e=>{st.ch=e.target.value;render()};
 document.querySelectorAll('.rb').forEach(b=>b.onclick=()=>{document.querySelectorAll('.rb').forEach(x=>x.classList.remove('active'));b.classList.add('active');st.res=b.dataset.r;render()});
 render();
 </script>
+
+</div>
+
+<script>
+(function(){
+  // Simple hash-based password check
+  // Password: "arabam2026" — change as needed
+  const HASH = "a1b2c3d4"; // placeholder, we use simple comparison
+  const CORRECT = "arabam2026";
+  
+  const overlay = document.getElementById('login-overlay');
+  const app = document.getElementById('main-app');
+  const pwInput = document.getElementById('login-pw');
+  const btn = document.getElementById('login-btn');
+  const err = document.getElementById('login-err');
+  
+  // Check if already authenticated this session
+  if (sessionStorage.getItem('arabam_auth') === 'ok') {
+    overlay.classList.add('hidden');
+    app.classList.add('visible');
+  }
+  
+  function attempt() {
+    const pw = pwInput.value.trim();
+    if (pw === CORRECT) {
+      sessionStorage.setItem('arabam_auth', 'ok');
+      overlay.classList.add('hidden');
+      app.classList.add('visible');
+      err.textContent = '';
+    } else {
+      err.textContent = 'Hatalı şifre';
+      pwInput.value = '';
+      pwInput.focus();
+      pwInput.style.borderColor = 'var(--r)';
+      setTimeout(() => { pwInput.style.borderColor = ''; }, 1500);
+    }
+  }
+  
+  btn.addEventListener('click', attempt);
+  pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') attempt(); });
+})();
+</script>
+
 </body>
 </html>
