@@ -187,7 +187,7 @@ html,body{height:100%;font-family:var(--f);background:var(--bg);color:var(--tx);
 
 /* Scorecards */
 .sc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px;margin-bottom:14px}
-.sc-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px;transition:.2s;position:relative;overflow:hidden;cursor:pointer}
+.sc-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px;transition:.2s;position:relative;overflow:hidden;cursor:pointer;display:flex;flex-direction:column}
 .sc-card:hover{box-shadow:var(--sh2)}
 .sc-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:2px 0 0 2px}
 .sc-card.tier-s::before{background:var(--gn)}.sc-card.tier-a::before{background:var(--bl)}
@@ -299,6 +299,86 @@ html,body{height:100%;font-family:var(--f);background:var(--bg);color:var(--tx);
 .ai-key-input:focus{border-color:var(--pr);box-shadow:0 0 0 3px rgba(112,72,232,.15)}
 .ai-submit-btn{padding:9px 22px;background:var(--pr);color:#fff;border:none;border-radius:var(--r3);font-family:var(--f);font-size:12px;font-weight:600;cursor:pointer;transition:.15s}
 .ai-submit-btn:hover{filter:brightness(1.1)}
+/* CPA Override + RTB bonus badges */
+.sc-override{font-size:9px;font-weight:700;color:var(--or);background:var(--or2);border:1px solid var(--or);border-radius:3px;padding:2px 7px;margin-top:4px;display:inline-block;cursor:help;letter-spacing:.2px}
+.sc-rtb-bonus{font-size:9px;font-weight:600;color:var(--bl);background:var(--bl2);border-radius:3px;padding:2px 7px;margin-top:2px;display:inline-block;letter-spacing:.2px}
+/* Accordion */
+.an-accordion{border:1px solid var(--bd);border-radius:var(--r);margin-bottom:14px;overflow:hidden}
+.an-accordion summary{padding:12px 16px;cursor:pointer;font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:space-between;background:var(--sf);user-select:none;list-style:none}
+.an-accordion summary::-webkit-details-marker{display:none}
+.an-accordion summary:hover{background:var(--bg2)}
+.an-accordion summary .acc-sub{font-size:10px;font-weight:400;color:var(--tx3);font-family:var(--m);margin-left:8px}
+.an-accordion>div{padding:14px 16px;border-top:1px solid var(--bd)}
+.an-accordion>div.no-pad{padding:0}
+/* Breakdown pill */
+.bd-pill{font-size:9px;font-family:var(--m);font-weight:700;padding:2px 6px;border-radius:3px;display:inline-flex;align-items:center;gap:3px}
+/* Tier summary bar */
+.tier-bar{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);margin-bottom:10px;flex-wrap:wrap;gap:8px}
+.tier-bar-item{display:flex;align-items:center;gap:5px;font-size:11px;font-family:var(--m);font-weight:600}
+.tier-bar-dot{width:8px;height:8px;border-radius:2px}
+/* Signal rows */
+.signal-row{display:flex;flex-direction:column;gap:5px;padding:10px 14px;background:var(--bg);border-radius:var(--r);border-left:3px solid var(--bd);margin-bottom:12px;font-size:11.5px;line-height:1.5}
+.signal-item{display:flex;align-items:center;gap:6px}
+/* Detaylar butonu */
+.sc-detail-btn{font-size:10px;color:var(--bl);cursor:pointer;padding:3px 8px;border:1px solid var(--bd);border-radius:var(--r3);background:transparent;transition:.15s;white-space:nowrap}
+.sc-detail-btn:hover{background:var(--bl2)}
+
+/* irgatOS Terminal */
+.iros-wrap{display:flex;flex-direction:column;gap:16px;max-width:900px;margin:0 auto}
+.iros-shell{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r2);overflow:hidden;box-shadow:var(--sh)}
+.iros-header{background:#0F172A;padding:10px 16px;display:flex;align-items:center;gap:12px}
+.iros-dots{display:flex;gap:5px}
+.iros-dot{width:10px;height:10px;border-radius:50%}
+.iros-title{font-family:var(--m);font-size:11px;color:rgba(255,255,255,.4);flex:1;text-align:center;letter-spacing:.06em}
+.iros-status{font-family:var(--m);font-size:10px;color:#1D9E75;display:flex;align-items:center;gap:5px}
+.iros-status-dot{width:6px;height:6px;border-radius:50%;background:#1D9E75;animation:iros-pulse 2s infinite}
+@keyframes iros-pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.iros-meta{display:flex;background:#1E293B;border-bottom:1px solid rgba(255,255,255,.06)}
+.iros-meta-item{padding:7px 14px;font-family:var(--m);font-size:10px;border-right:1px solid rgba(255,255,255,.06);display:flex;gap:6px;align-items:center}
+.iros-meta-item span:first-child{color:rgba(255,255,255,.3)}
+.iros-meta-item span:last-child{color:rgba(255,255,255,.7);font-weight:500}
+.iros-pb{font-size:9px;padding:2px 6px;border-radius:3px;font-family:var(--m);font-weight:600}
+.iros-pb.google{background:rgba(59,91,219,.25);color:#93B4FF}
+.iros-pb.meta{background:rgba(112,72,232,.25);color:#C4B5FD}
+.iros-pb.ga4{background:rgba(232,89,12,.2);color:#FCA970}
+.iros-sugg{padding:10px 14px;display:flex;gap:7px;flex-wrap:wrap;background:#F8FAFF;border-bottom:1px solid var(--bd)}
+.iros-sugg-lbl{font-size:10px;color:var(--tx3);font-family:var(--m);padding:4px 0;white-space:nowrap}
+.iros-sugg-btn{font-family:var(--m);font-size:10px;padding:4px 9px;border:1px solid var(--bd);border-radius:var(--r3);background:var(--sf);color:var(--tx2);cursor:pointer;transition:.12s}
+.iros-sugg-btn:hover{border-color:var(--bl);color:var(--bl);background:var(--bl2)}
+.iros-output{min-height:260px;max-height:400px;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:0;background:#FAFBFF}
+.iros-line{font-size:12px;line-height:1.65;padding:1.5px 0}
+.iros-line.sys{color:var(--tx3);font-family:var(--m);font-size:10px}
+.iros-line.query{color:var(--bl);font-family:var(--m);font-weight:600}
+.iros-line.thinking{color:var(--tx3);font-style:italic;font-family:var(--m);font-size:11px}
+.iros-line.response{color:var(--tx);font-family:var(--f);font-size:12.5px;line-height:1.75;white-space:pre-wrap}
+.iros-line.err{color:var(--rd);font-family:var(--m);font-size:11px}
+.iros-line.spacer{height:10px}
+.iros-mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0}
+.iros-mc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:10px 12px}
+.iros-mc-l{font-size:9px;font-family:var(--m);font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
+.iros-mc-v{font-size:19px;font-weight:700;font-family:var(--m);letter-spacing:-.5px;color:var(--tx)}
+.iros-mc-d{font-size:9.5px;margin-top:2px;font-family:var(--m)}
+.iros-mc-d.up{color:var(--gn)}.iros-mc-d.dn{color:var(--rd)}
+.iros-input-row{border-top:1px solid var(--bd);display:flex;align-items:center;background:var(--sf)}
+.iros-prompt{font-family:var(--m);font-size:12px;color:var(--bl);padding:0 12px;white-space:nowrap;font-weight:600}
+.iros-input{flex:1;font-family:var(--m);font-size:12px;border:none;outline:none;background:transparent;color:var(--tx);padding:13px 0}
+.iros-run{font-family:var(--m);font-size:11px;color:var(--gn);background:transparent;border:none;border-left:1px solid var(--bd);padding:13px 16px;cursor:pointer;font-weight:600;transition:.12s}
+.iros-run:hover{background:var(--gn2)}.iros-run:disabled{opacity:.35;cursor:not-allowed}
+.iros-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.iros-info-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px}
+.iros-info-card h4{font-size:12px;font-weight:700;margin-bottom:10px;color:var(--tx)}
+.iros-arch-step{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid var(--bd2);font-size:11px}
+.iros-arch-step:last-child{border-bottom:none}
+.iros-arch-num{width:20px;height:20px;border-radius:50%;background:var(--bl);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;font-family:var(--m);flex-shrink:0;margin-top:1px}
+.iros-arch-label{font-weight:600;color:var(--tx);font-family:var(--m);font-size:10px}
+.iros-arch-sub{color:var(--tx3);font-size:10px;margin-top:1px}
+.iros-cost-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--bd2);font-size:11px}
+.iros-cost-row:last-child{border-bottom:none}
+.iros-cost-label{color:var(--tx2);font-family:var(--m)}
+.iros-cost-val{font-family:var(--m);font-weight:600;color:var(--tx)}
+.iros-preset{padding:7px 14px;font-family:var(--m);font-size:10.5px;color:rgba(255,255,255,.55);cursor:pointer;transition:.1s;white-space:nowrap}
+.iros-preset:hover{background:rgba(255,255,255,.07);color:rgba(255,255,255,.9)}
+.iros-cal-day:hover{background:rgba(255,255,255,.08) !important}
 
 
 </style>
@@ -325,6 +405,8 @@ html,body{height:100%;font-family:var(--f);background:var(--bg);color:var(--tx);
 <div class="sb-item" data-t="gads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span>Google Ads</span></div>
 <div class="sb-item" data-t="channels"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg><span>Kanal Karşılaştırma</span></div>
 <div class="sb-item" data-t="analytics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg><span>Channel IQ</span></div>
+<div class="sb-item" data-t="analysis"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>Analiz</span></div>
+<div class="sb-item" data-t="irgatos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg><span>irgatOS</span></div>
 </nav>
 <div class="sb-ft">ChoraLabs © 2026</div>
 </div>
@@ -357,6 +439,8 @@ html,body{height:100%;font-family:var(--f);background:var(--bg);color:var(--tx);
 <div class="tab" id="t-gads"></div>
 <div class="tab" id="t-channels"></div>
 <div class="tab" id="t-analytics"></div>
+<div class="tab" id="t-analysis"></div>
+<div class="tab" id="t-irgatos"></div>
 </div>
 </div>
 </div>
@@ -414,6 +498,7 @@ function fD(d){return d.filter(r=>((S.p==='all'||r.p===S.p)&&(S.ct==='all'||r.t=
 
 function aM(d){const m={};d.forEach(r=>{const k=r.ym||r.d?.slice(0,7);if(!m[k])m[k]={c:0,s:0,es:0,q:0,k:0,r:0,i:0,l:0,kp:0,sp:0,rp:0,f:0,w:0,g:0,a:0,im:0,vv:0};const o=m[k];o.c+=r.c||0;o.s+=r.s||0;o.es+=r.es||0;o.q+=r.q||0;o.k+=r.k||0;o.r+=r.r||0;o.i+=r.i||0;o.l+=r.l||0;o.kp+=r.kp||0;o.sp+=r.sp||0;o.rp+=r.rp||0;o.f+=r.f||0;o.w+=r.w||0;o.g+=r.g||0;o.a+=r.a||0;o.im+=r.im||0;o.vv+=r.vv||0});return m}
 function aCh(d){const m={};d.forEach(r=>{const k=r.h;if(!m[k])m[k]={c:0,s:0,q:0,k:0,r:0,i:0,l:0,kp:0,sp:0,rp:0,w:0,g:0,a:0,im:0};const o=m[k];o.c+=r.c||0;o.s+=r.s||0;o.q+=r.q||0;o.k+=r.k||0;o.r+=r.r||0;o.i+=r.i||0;o.l+=r.l||0;o.kp+=r.kp||0;o.sp+=r.sp||0;o.rp+=r.rp||0;o.w+=r.w||0;o.g+=r.g||0;o.a+=r.a||0;o.im+=r.im||0});return m}
+function aChPrPl(d){const m={};d.forEach(r=>{const k=`${r.h}|${r.pr||'?'}|${r.p||'?'}`;if(!m[k])m[k]={c:0,s:0,q:0,k:0,r:0,kp:0,i:0,l:0,im:0,ch:r.h,pr:r.pr||'?',pl:r.p||'?'};const o=m[k];o.c+=r.c||0;o.s+=r.s||0;o.q+=r.q||0;o.k+=r.k||0;o.r+=r.r||0;o.kp+=r.kp||0;o.i+=r.i||0;o.l+=r.l||0;o.im+=r.im||0});return m}
 function aCpt(d){const m={};d.forEach(r=>{const k=r.cp;if(!k)return;if(!m[k])m[k]={c:0,s:0,q:0,k:0,r:0,i:0,l:0,kp:0,sp:0,rp:0,im:0};const o=m[k];o.c+=r.c||0;o.s+=r.s||0;o.q+=r.q||0;o.k+=r.k||0;o.r+=r.r||0;o.i+=r.i||0;o.l+=r.l||0;o.kp+=r.kp||0;o.sp+=r.sp||0;o.rp+=r.rp||0;o.im+=r.im||0});return m}
 function aPr(d){const m={};d.forEach(r=>{const k=r.pr;if(!k)return;if(!m[k])m[k]={c:0,s:0,q:0,k:0,r:0};const o=m[k];o.c+=r.c||0;o.s+=r.s||0;o.q+=r.q||0;o.k+=r.k||0;o.r+=r.r||0});return m}
 
@@ -889,8 +974,8 @@ el.insertAdjacentHTML('beforeend',`<div class="cc"><div class="cc-h"><div class=
 
 
 // === DRAWER ===
-function openDrawer(title,contentHtml,color){
-document.getElementById('drawerTitle').innerHTML=`<div style="width:10px;height:10px;border-radius:3px;background:${color||'var(--bl)'}"></div>${title}`;
+function openDrawer(title,contentHtml,color,headerExtra){
+document.getElementById('drawerTitle').innerHTML=`<div style="display:flex;align-items:center;gap:6px;width:100%"><div style="width:10px;height:10px;border-radius:3px;flex-shrink:0;background:${color||'var(--bl)'}"></div><span style="font-weight:700;flex:1">${title}</span>${headerExtra||''}</div>`;
 document.getElementById('drawerBody').innerHTML=contentHtml;
 document.getElementById('drawerOv').classList.add('on');
 document.getElementById('drawer').classList.add('on');
@@ -929,6 +1014,46 @@ ${s.momentum?`<div>CPA Trendi: <b>${s.momentum.cpaMom>0?'+':''}${s.momentum.cpaM
 <div class="sc-rec ${s.recCls}" style="margin-top:10px">→ ${s.rec}</div>
 </div>`;
 
+
+// Ürün × Platform Kırılımı (Model B)
+if(s.breakdown&&Object.keys(s.breakdown).length>0){
+const bdEntries=Object.entries(s.breakdown);
+const PR_LABELS={TS:'Trinksat',LS:'Listing',AA:'Arabam App',OE:'Oto Ekspertiz',GR:'Garaj'};
+const PL_LABELS={W:'Web',A:'App'};
+html+=`<div class="drawer-section"><div class="drawer-section-title">Ürün × Platform Kırılımı</div>
+<div style="font-size:10px;color:var(--tx3);margin-bottom:8px">Yeterli veri: ₺${Math.round(SCORE_CFG.MIN_COST/1000)}K+ harcama + ${SCORE_CFG.MIN_CONV}+ dönüşüm. Hedef: target×${SCORE_CFG.ANCHOR_GOOD_MULT}→100p / target×${SCORE_CFG.ANCHOR_BAD_MULT}→0p.</div>
+<div style="display:flex;flex-direction:column;gap:6px">`;
+bdEntries.sort((a,b)=>b[1].cost-a[1].cost).forEach(([bdKey,b])=>{
+  const prLabel=PR_LABELS[b.pr]||b.pr;
+  const plLabel=PL_LABELS[b.pl]||b.pl;
+  const effColor=b.effScore==null?'var(--tx3)':b.effScore>=65?'var(--gn)':b.effScore>=50?'var(--bl)':b.effScore>=35?'var(--or)':'var(--rd)';
+  const effBg=b.effScore==null?'var(--bg2)':b.effScore>=65?'var(--gn2)':b.effScore>=50?'var(--bl2)':b.effScore>=35?'var(--or2)':'var(--rd2)';
+  // CPA display
+  let cpaHtml='';
+  if(b.pr==='TS'){
+    const sqRatio=b.sqCpa&&b.sqTgt?b.sqCpa/b.sqTgt:null;
+    const rvRatio=b.rvCpa&&b.rvTgt?b.rvCpa/b.rvTgt:null;
+    const sqColor=sqRatio==null?'var(--tx3)':sqRatio<1?'var(--gn)':sqRatio<2?'var(--or)':'var(--rd)';
+    const rvColor=rvRatio==null?'var(--tx3)':rvRatio<1?'var(--gn)':rvRatio<2?'var(--or)':'var(--rd)';
+    cpaHtml=`<span style="color:${sqColor}">SqCPA: ${b.sqCpa?'₺'+b.sqCpa.toFixed(0):'—'}${b.sqTgt?' /₺'+b.sqTgt:''}</span>
+    <span style="color:${rvColor}">RvCPA: ${b.rvCpa?'₺'+Math.round(b.rvCpa):'—'}${b.rvTgt?' /₺'+b.rvTgt:''}</span>`;
+  }else{
+    const kpcRatio=b.kpcCpa&&b.kpcTgt?b.kpcCpa/b.kpcTgt:null;
+    const kpcColor=kpcRatio==null?'var(--tx3)':kpcRatio<1?'var(--gn)':kpcRatio<2?'var(--or)':'var(--rd)';
+    cpaHtml=`<span style="color:${kpcColor}">KpcCPA: ${b.kpcCpa?'₺'+b.kpcCpa.toFixed(0):'—'}${b.kpcTgt?' /₺'+b.kpcTgt:''}</span>`;
+    if(b.rvCpa)cpaHtml+=`<span style="color:var(--tx3)">RvCPA: ₺${Math.round(b.rvCpa)}</span>`;
+  }
+  html+=`<div style="display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;background:var(--bg2);font-size:10.5px">
+  <div style="min-width:90px;font-weight:600;color:var(--tx1)">${prLabel} · ${plLabel}</div>
+  <div style="min-width:48px;font-weight:700;padding:2px 6px;border-radius:4px;text-align:center;background:${effBg};color:${effColor};font-family:var(--m)">${b.effScore!=null?b.effScore:'—'}</div>
+  <div style="flex:1;display:flex;flex-wrap:wrap;gap:6px;color:var(--tx2)">${cpaHtml}</div>
+  <div style="font-size:9.5px;color:var(--tx3)">₺${fmt(b.cost)}</div>
+  ${!b.sufficient?'<div style="font-size:9px;color:var(--tx3);font-style:italic">yetersiz</div>':''}
+  </div>`;
+});
+html+=`</div></div>`;
+}
+
 // Pillar breakdown
 html+=`<div class="drawer-section"><div class="drawer-section-title">Skor Bileşenleri</div>
 <div class="sc-bars" style="max-width:300px">
@@ -960,7 +1085,28 @@ ${c.sqCpa?`<div class="cpt-meta">CPA: <b>₺${c.sqCpa.toFixed(0)}</b></div>`:''}
 html+=`</div>`;
 }
 
-openDrawer(s.name,html,s.color);
+// CPA Floor Override section — spec sırası: kampanya tipi kırılımından sonra
+if(s.cpaOverride&&s.cpaOverride.triggered){
+html+=`<div class="drawer-section" style="background:var(--or2);border-left:3px solid var(--or)">
+<div style="font-size:11px;font-weight:600;color:var(--or);margin-bottom:4px">⚠ CPA Hedef Aşımı — Tier Override</div>
+<div style="font-size:10.5px;color:var(--tx2);line-height:1.5">${s.cpaOverride.reason}</div>
+<div style="font-size:9.5px;color:var(--tx3);margin-top:4px">Tier ${s.cpaOverride.severity===2?'2 kademe':'1 kademe'} aşağı çekildi · Skor değişmedi · Hedefler: Sorgu CPA ₺${S.p==='A'?SCORE_CFG.TS_APP_SQ_CPA:SCORE_CFG.TS_WEB_SQ_CPA} / Randevu CPA ₺${S.p==='A'?SCORE_CFG.TS_APP_RV_CPA:SCORE_CFG.TS_WEB_RV_CPA}</div>
+</div>`;
+}
+// RTB cross-product bonus section
+if(s.rtbBonus){
+html+=`<div class="drawer-section" style="background:var(--bl2)">
+<div style="font-size:11px;font-weight:600;color:var(--bl);margin-bottom:3px">✦ Cross-product Bonus Uygulandı</div>
+<div style="font-size:10.5px;color:var(--tx2)">RTB House, Listing kanalından Trinksat randevusuna cross-product katkı sağladığından Randevu CPA ×${SCORE_CFG.RTB_CROSS_BONUS} olarak ayarlandı (gerçek: ₺${s.rvCpa?fmt(s.rvCpa):'—'} → scoring: ₺${s.rvCpaScore?fmt(s.rvCpaScore):'—'}).</div>
+</div>`;
+}
+
+// Drawer header: tier badge + skor + kısa tavsiye
+const recColors={inc:'var(--gn)',hold:'var(--bl)',dec:'var(--or)',cut:'var(--rd)'};
+const recWords=s.rec.split(' ');const recShort=recWords.slice(0,4).join(' ')+(recWords.length>4?'…':'');
+const headerExtra=`<div style="display:flex;align-items:center;gap:6px;flex-shrink:0"><span style="font-size:9.5px;font-weight:700;padding:2px 5px;border-radius:3px;background:${tierBg[s.tier]};color:${tierColors[s.tier]}">${s.tier}</span><span style="font-size:18px;font-weight:800;font-family:var(--m);color:${tierColors[s.tier]}">${s.score}</span><span style="font-size:10.5px;color:${recColors[s.recCls]||'var(--tx2)'}">${recShort}</span></div>`;
+
+openDrawer(s.name,html,s.color,headerExtra);
 }
 
 function closeDrawer(){
@@ -1007,7 +1153,7 @@ document.querySelectorAll('#fct span').forEach(p=>p.onclick=()=>{document.queryS
 document.querySelectorAll('#fres span').forEach(p=>p.onclick=()=>{document.querySelectorAll('#fres span').forEach(x=>x.classList.remove('on'));p.classList.add('on');S.res=p.dataset.v;go()});
 fcpt.onchange=()=>{S.cpt=fcpt.value;go()};fpr.onchange=()=>{S.pr=fpr.value;go()};fob.onchange=()=>{S.ob=fob.value;go()};
 fs1.onchange=()=>{S.s=fs1.value;go()};fs2.onchange=()=>{S.e=fs2.value;go()};
-document.querySelectorAll('.sb-item').forEach(n=>n.onclick=()=>{document.querySelectorAll('.sb-item').forEach(x=>x.classList.remove('on'));n.classList.add('on');S.tab=n.dataset.t;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));document.getElementById('t-'+n.dataset.t).classList.add('on');go()});
+document.querySelectorAll('.sb-item').forEach(n=>n.onclick=()=>{document.querySelectorAll('.sb-item').forEach(x=>x.classList.remove('on'));n.classList.add('on');S.tab=n.dataset.t;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));document.getElementById('t-'+n.dataset.t).classList.add('on');if(n.dataset.t==='irgatos'&&window._irosRender)window._irosRender();else go();});
 go();
 }
 function toggleDD(){document.getElementById('chDd').classList.toggle('show')}
@@ -1016,158 +1162,204 @@ function updCh(){const cks=[...document.querySelectorAll('#chDd input:checked')]
 
 // ============ ANALYTICS TAB — DECISION SUPPORT ============
 
-function calcScores(chData){
-// 3-Pillar Scoring: Efficiency(40%) + Scale(35%) + Quality(25%)
-// With volume gate, log-normalization, and consistency metrics
+// ====== SCORING CONFIG — iş hedefleri buradan yönetilir ======
+const SCORE_CFG={
+  // Trinksat CPA hedefleri — ürün × platform
+  TS_WEB_SQ_CPA:40,    // Trinksat Web: sorgu CPA hedefi (₺)
+  TS_WEB_RV_CPA:700,   // Trinksat Web: randevu CPA hedefi (₺)
+  TS_APP_SQ_CPA:25,    // Trinksat App: sorgu CPA hedefi (₺)
+  TS_APP_RV_CPA:500,   // Trinksat App: randevu CPA hedefi (₺)
+  // Backward compat aliases (Faz 1 kodu için)
+  get SQ_CPA_WEB(){return this.TS_WEB_SQ_CPA},
+  get SQ_CPA_APP(){return this.TS_APP_SQ_CPA},
+  get RV_CPA_WEB(){return this.TS_WEB_RV_CPA},
+  get RV_CPA_APP(){return this.TS_APP_RV_CPA},
+  // Listing CPA hedefi
+  LST_KPC_CPA:90,      // Listing: kurumsal PC CPA hedefi (₺)
+  // Anchored normalizasyon çarpanları
+  ANCHOR_GOOD_MULT:0.5,// anchorGood = hedef × 0.5 → skor 1.0
+  ANCHOR_BAD_MULT:4.0, // anchorBad = hedef × 4.0 → skor 0.0 (Faz 1'de 3.0 idi)
+  // RTB House
+  RTB_CHANNEL_KEY:'17',// RTB House kanal anahtarı
+  RTB_DUAL_KPC_W:0.6,  // RTB House dual KPI: KPC ağırlığı
+  RTB_DUAL_RV_W:0.4,   // RTB House dual KPI: Randevu ağırlığı
+  RTB_CROSS_BONUS:0.75,// Faz 1 backward compat cross-product katsayısı
+  // Yeterli veri eşikleri
+  MIN_COST:10000,      // Minimum harcama (₺) — altı: skor "yetersiz" damgası
+  MIN_CONV:10,         // Minimum dönüşüm sayısı
+  // CPA Floor Override
+  CPA_FLOOR_2X:2.0,    // 2× hedef → tier 1 kademe aşağı
+  CPA_FLOOR_3X:3.0     // 3× hedef → tier 2 kademe aşağı
+};
+
+// Anchored normalization — CPA metriklerini mutlak hedeflere pinle
+// anchorGood (= target × ANCHOR_GOOD_MULT) → 1.0 | anchorBad (= target × ANCHOR_BAD_MULT) → 0.0
+// Saf min-max ile "herkes kötüyse biri yine de yüksek skor alır" sorununu önler
+function normLBAnchored(vals,anchorGood,anchorBad){
+  const lag=Math.log1p(anchorGood),lab=Math.log1p(anchorBad);
+  return vals.map(v=>{
+    if(v==null||v<=0)return 0;
+    const norm=1-(Math.log1p(v)-lag)/(lab-lag);
+    return Math.max(0,Math.min(1,norm));
+  });
+}
+// Scalar (tek değer) versiyonu — calcScoresV2 per-breakdown scoring için
+function normAnchored(v,anchorGood,anchorBad){
+  if(v==null||v<=0)return 0;
+  const lag=Math.log1p(anchorGood),lab=Math.log1p(anchorBad);
+  const norm=1-(Math.log1p(v)-lag)/(lab-lag);
+  return Math.max(0,Math.min(1,norm));
+}
+
+function calcScores(chData,targets){
+// [v2] Değişiklikler: (1) CPA Floor Override, (2) Elastisite→P2,
+//      (3) P3 ağırlık düzeltme, (4) Anchored Normalization, (RTB) Cross-product bonus
+const tgt=targets||{
+  sqCpa:S.p==='A'?SCORE_CFG.SQ_CPA_APP:SCORE_CFG.SQ_CPA_WEB,
+  rvCpa:S.p==='A'?SCORE_CFG.RV_CPA_APP:SCORE_CFG.RV_CPA_WEB
+};
+
 const entries=Object.entries(chData).filter(([k,d])=>d.s>0);
 const totalC=entries.reduce((a,[k,d])=>a+d.c,0)||1;
 const totalQ=entries.reduce((a,[k,d])=>a+d.q,0)||1;
 const totalR=entries.reduce((a,[k,d])=>a+d.r,0)||1;
 
-// Compute raw metrics per channel
+// Raw metrics — RTB cross-product bonus uygulanır
 const raw=entries.map(([k,d])=>{
-const cShare=d.c/totalC*100;
-return{
-k,name:MAP.ch[k]||k,color:CHC[MAP.ch[k]]||'#999',
-cost:d.c,cShare,
-sqCpa:d.q>0?d.c/d.q:null,
-rvCpa:d.r>0?d.c/d.r:null,
-s2r:d.s>0?d.r/d.s*100:0,
-qShare:d.q/totalQ*100,
-rShare:d.r/totalR*100,
-budgetScale:Math.log1p(d.c),
-q2t:d.q>0?d.k/d.q*100:0,
-t2r:d.k>0?d.r/d.k*100:0,
-sorgu:d.q,teklif:d.k,randevu:d.r,sessions:d.s,clicks:d.l,imp:d.im
-};
+  const chName=MAP.ch[k]||k;
+  const isRTB=chName==='RTB House';
+  const rvCpaRaw=d.r>0?d.c/d.r:null;
+  // RTB bonus: Listing→Trinksat cross attribution düzeltmesi
+  const rvCpaScore=(isRTB&&rvCpaRaw!=null)?rvCpaRaw*SCORE_CFG.RTB_CROSS_BONUS:rvCpaRaw;
+  return{
+    k,name:chName,color:CHC[chName]||'#999',
+    cost:d.c,cShare:d.c/totalC*100,
+    sqCpa:d.q>0?d.c/d.q:null,
+    rvCpa:rvCpaRaw,         // gerçek değer (gösterim için)
+    rvCpaScore,             // düzeltilmiş değer (scoring için)
+    s2r:d.s>0?d.r/d.s*100:0,
+    qShare:d.q/totalQ*100,rShare:d.r/totalR*100,
+    budgetScale:Math.log1p(d.c),
+    q2t:d.q>0?d.k/d.q*100:0,t2r:d.k>0?d.r/d.k*100:0,
+    sorgu:d.q,teklif:d.k,randevu:d.r,sessions:d.s,clicks:d.l,imp:d.im,
+    rtbBonus:isRTB&&rvCpaRaw!=null
+  };
 });
 
-// Normalize functions
-function normLB(arr,key){
-// Lower is better, log-transform, handle null
-const vals=arr.map(r=>{const v=r[key];return v!=null&&v>0?Math.log1p(v):null});
-const valid=vals.filter(v=>v!=null);
-if(!valid.length)return arr.map(()=>0);
-const pen=Math.max(...valid)*1.5; // penalty for null
-const filled=vals.map(v=>v!=null?v:pen);
-const mn=Math.min(...filled),mx=Math.max(...filled);
-if(mx===mn)return arr.map(()=>0.5);
-return filled.map(v=>1-(v-mn)/(mx-mn)); // invert
-}
-function normHB(arr,key){
-const vals=arr.map(r=>r[key]||0);
-const mn=Math.min(...vals),mx=Math.max(...vals);
-if(mx===mn)return arr.map(()=>0.5);
-return vals.map(v=>(v-mn)/(mx-mn));
-}
+// Change 4: Anchored normalization — sqCpa ve rvCpa için mutlak hedef referanslı
+const n_sqCpa=normLBAnchored(raw.map(r=>r.sqCpa),tgt.sqCpa*0.5,tgt.sqCpa*3.0);
+const n_rvCpa=normLBAnchored(raw.map(r=>r.rvCpaScore),tgt.rvCpa*0.5,tgt.rvCpa*3.0);
 
-const n_sqCpa=normLB(raw,'sqCpa');
-const n_rvCpa=normLB(raw,'rvCpa');
-const n_s2r=normHB(raw,'s2r');
-const n_qShare=normHB(raw,'qShare');
-const n_rShare=normHB(raw,'rShare');
-const n_budScale=normHB(raw,'budgetScale');
-const n_q2t=normHB(raw,'q2t');
-const n_t2r=normHB(raw,'t2r');
+// Diğer metrikler için standart normalizasyon
+function normHB(arr,key){const vals=arr.map(r=>r[key]||0);const mn=Math.min(...vals),mx=Math.max(...vals);if(mx===mn)return arr.map(()=>0.5);return vals.map(v=>(v-mn)/(mx-mn))}
+const n_s2r=normHB(raw,'s2r'),n_qShare=normHB(raw,'qShare'),n_rShare=normHB(raw,'rShare');
+const n_budScale=normHB(raw,'budgetScale'),n_q2t=normHB(raw,'q2t'),n_t2r=normHB(raw,'t2r');
 
-// Monthly consistency (CV of Sorgu CPA) — use monthly data
+// CV (monthly consistency)
 const monthlyByCh={};
-fM(M).forEach(r=>{
-const k=r.h+'|'+r.ym;
-if(!monthlyByCh[k])monthlyByCh[k]={c:0,q:0,h:r.h};
-monthlyByCh[k].c+=r.c||0;monthlyByCh[k].q+=r.q||0;
-});
+fM(M).forEach(r=>{const k=r.h+'|'+r.ym;if(!monthlyByCh[k])monthlyByCh[k]={c:0,q:0,h:r.h};monthlyByCh[k].c+=r.c||0;monthlyByCh[k].q+=r.q||0});
 const cvByChannel={};
 raw.forEach(r=>{
-const monthCpas=[];
-Object.entries(monthlyByCh).forEach(([key,v])=>{
-if(v.h===r.k&&v.c>0&&v.q>0)monthCpas.push(v.c/v.q);
-});
-if(monthCpas.length>=3){
-const mean=monthCpas.reduce((a,b)=>a+b,0)/monthCpas.length;
-const std=Math.sqrt(monthCpas.reduce((a,b)=>a+(b-mean)**2,0)/monthCpas.length);
-cvByChannel[r.k]=std/mean;
-}else{cvByChannel[r.k]=1;} // penalize lack of data
+  const cpas=[];Object.values(monthlyByCh).forEach(v=>{if(v.h===r.k&&v.c>0&&v.q>0)cpas.push(v.c/v.q)});
+  if(cpas.length>=3){const m=cpas.reduce((a,b)=>a+b,0)/cpas.length;cvByChannel[r.k]=Math.sqrt(cpas.reduce((a,b)=>a+(b-m)**2,0)/cpas.length)/m}
+  else cvByChannel[r.k]=1;
 });
 const cvVals=raw.map(r=>cvByChannel[r.k]||1);
 const cvMn=Math.min(...cvVals),cvMx=Math.max(...cvVals);
 const n_cv=cvVals.map(v=>cvMx>cvMn?1-(v-cvMn)/(cvMx-cvMn):0.5);
 
-// Weighted pillars
-const results=raw.map((r,i)=>{
-const p1=n_sqCpa[i]*0.15+n_rvCpa[i]*0.15+n_s2r[i]*0.10; // Efficiency 40%
-const p2=n_qShare[i]*0.15+n_rShare[i]*0.10+n_budScale[i]*0.10; // Scale 35%
-const p3=n_q2t[i]*0.10+n_t2r[i]*0.10+n_cv[i]*0.05; // Quality 25%
-let score=(p1+p2+p3)*100;
-// Volume gate: <0.1% cost share → cap at 60
-if(r.cShare<0.1&&r.cost>0)score=Math.min(score,60);
-// Zero cost channels → cap at 55 (can't evaluate true efficiency without spend)
-if(r.cost===0)score=Math.min(score,55);
-const tier=score>=65?'S':score>=50?'A':score>=35?'B':'C';
-// Recommendation logic
-let rec,recCls;
-if(tier==='S'&&r.cShare<30){rec='Bütçe artırılabilir — yüksek verimlilik, ölçeklenme potansiyeli';recCls='inc'}
-else if(tier==='S'){rec='Mevcut seviyeyi koru — ana performans motoru';recCls='hold'}
-else if(tier==='A'&&r.cShare<5){rec='Test bütçesi artırılabilir — verimli ama hacim düşük';recCls='inc'}
-else if(tier==='A'){rec='Koru ve optimize et';recCls='hold'}
-else if(tier==='B'&&r.cShare>5){rec='Optimizasyon gerekli — yüksek harcama, düşük verimlilik';recCls='dec'}
-else if(tier==='B'){rec='İzlemeye devam';recCls='hold'}
-else if(tier==='C'&&r.cShare>1){rec='Bütçe azaltılmalı veya yeniden yapılandırılmalı';recCls='cut'}
-else{rec='Düşük öncelik';recCls='hold'}
-
-return{
-...r,score:Math.round(score*10)/10,tier,rec,recCls,
-p1:Math.round(p1*1000)/10,p2:Math.round(p2*1000)/10,p3:Math.round(p3*1000)/10,
-bars:{sqCpa:Math.round(n_sqCpa[i]*100),rvCpa:Math.round(n_rvCpa[i]*100),s2r:Math.round(n_s2r[i]*100),
-qShare:Math.round(n_qShare[i]*100),rShare:Math.round(n_rShare[i]*100),scale:Math.round(n_budScale[i]*100),
-q2t:Math.round(n_q2t[i]*100),t2r:Math.round(n_t2r[i]*100),cv:Math.round(n_cv[i]*100)}
-};
+// Change 2: Elastisite — pillar hesabından önce compute edildi (önceden sonradaydı)
+const elastByChannel={};
+raw.forEach(r=>{
+  const md=[];
+  fM(M).forEach(row=>{if(row.h!==r.k)return;const ex=md.find(m=>m.ym===row.ym);if(ex){ex.c+=row.c||0;ex.q+=row.q||0}else md.push({ym:row.ym,c:row.c||0,q:row.q||0})});
+  if(md.length>=4&&r.cost>0){
+    const s=md.sort((a,b)=>a.ym.localeCompare(b.ym));let su=0,cnt=0;
+    for(let i=1;i<s.length;i++){if(s[i-1].c>0&&s[i-1].q>0&&s[i].c>0){const dC=(s[i].c-s[i-1].c)/s[i-1].c,dQ=(s[i].q-s[i-1].q)/s[i-1].q;if(Math.abs(dC)>0.05){su+=dQ/dC;cnt++}}}
+    elastByChannel[r.k]=cnt>0?Math.round(su/cnt*100)/100:null;
+  }else elastByChannel[r.k]=null;
 });
-// === MOMENTUM: Compare last 3 months vs previous 3 months ===
+// ε≥1→1.0 | ε=0.5→0.5 | ε≤0→0 | null→0.3 (veri yetersiz, ceza ama sıfır değil)
+function normElast(e){if(e==null)return 0.3;return Math.max(0,Math.min(1,e))}
+const n_elast=raw.map(r=>normElast(elastByChannel[r.k]));
+
+// Pillar hesabı — Change 2 (P2 elastisite), Change 3 (P3 ağırlıklar)
+// P1: sqCpa(15%) + rvCpa(15%) + s2r(10%)             = 40%
+// P2: qShare(15%) + rShare(10%) + scale(5%) + ε(5%)  = 35% [scale %10→%5, ε yeni]
+// P3: q2t(7%) + t2r(8%) + cv(10%)                    = 25% [q2t %10→%7, t2r %10→%8, cv %5→%10]
+const results=raw.map((r,i)=>{
+  const p1=n_sqCpa[i]*0.15+n_rvCpa[i]*0.15+n_s2r[i]*0.10;
+  const p2=n_qShare[i]*0.15+n_rShare[i]*0.10+n_budScale[i]*0.05+n_elast[i]*0.05;
+  const p3=n_q2t[i]*0.07+n_t2r[i]*0.08+n_cv[i]*0.10;
+  let score=(p1+p2+p3)*100;
+  if(r.cShare<0.1&&r.cost>0)score=Math.min(score,60);
+  if(r.cost===0)score=Math.min(score,55);
+  const scoreFinal=Math.round(score*10)/10;
+  let tier=score>=65?'S':score>=50?'A':score>=35?'B':'C';
+
+  // Change 1: CPA Floor Override — skor değişmez, sadece tier zorla aşağı çekilir
+  let cpaOverride={triggered:false,reason:'',severity:0};
+  const sqR=r.sqCpa!=null?r.sqCpa/tgt.sqCpa:0;
+  const rvR=r.rvCpaScore!=null?r.rvCpaScore/tgt.rvCpa:0;
+  const worst=Math.max(sqR,rvR);
+  const worstLabel=sqR>=rvR?'Sorgu':'Randevu';
+  const worstVal=sqR>=rvR?r.sqCpa:r.rvCpaScore;
+  const worstTgt=sqR>=rvR?tgt.sqCpa:tgt.rvCpa;
+  if(worst>=SCORE_CFG.CPA_FLOOR_3X){
+    cpaOverride={triggered:true,severity:2,reason:`${worstLabel} CPA ₺${worstVal?.toFixed(0)} (hedef: ₺${worstTgt}, ${worst.toFixed(1)}× — 2 kademe override)`};
+    const tiers=['C','B','A','S'];tier=tiers[Math.max(0,tiers.indexOf(tier)-2)];
+  }else if(worst>=SCORE_CFG.CPA_FLOOR_2X){
+    cpaOverride={triggered:true,severity:1,reason:`${worstLabel} CPA ₺${worstVal?.toFixed(0)} (hedef: ₺${worstTgt}, ${worst.toFixed(1)}× — 1 kademe override)`};
+    const tiers=['C','B','A','S'];tier=tiers[Math.max(0,tiers.indexOf(tier)-1)];
+  }
+
+  const elasticity=elastByChannel[r.k];
+  const elastLabel=elasticity!=null?(elasticity>0.8?'Yüksek':elasticity>0.4?'Orta':'Düşük'):null;
+
+  let rec,recCls;
+  if(tier==='S'&&r.cShare<30){rec='Bütçe artırılabilir — yüksek verimlilik, ölçeklenme potansiyeli';recCls='inc'}
+  else if(tier==='S'){rec='Mevcut seviyeyi koru — ana performans motoru';recCls='hold'}
+  else if(tier==='A'&&r.cShare<5){rec='Test bütçesi artırılabilir — verimli ama hacim düşük';recCls='inc'}
+  else if(tier==='A'){rec='Koru ve optimize et';recCls='hold'}
+  else if(tier==='B'&&r.cShare>5){rec='Optimizasyon gerekli — yüksek harcama, düşük verimlilik';recCls='dec'}
+  else if(tier==='B'){rec='İzlemeye devam';recCls='hold'}
+  else if(tier==='C'&&r.cShare>1){rec='Bütçe azaltılmalı veya yeniden yapılandırılmalı';recCls='cut'}
+  else{rec='Düşük öncelik';recCls='hold'}
+
+  console.log(`[SCORE] ${r.name}: raw=${scoreFinal} → tier_override=${cpaOverride.triggered} → final_tier=${tier}${cpaOverride.triggered?' ('+cpaOverride.reason+')':''}`);
+
+  return{
+    ...r,score:scoreFinal,tier,rec,recCls,
+    elasticity,elastLabel,elastNorm:normElast(elasticity),
+    cpaOverride,
+    p3Corrected:false,
+    anchorActive:true,
+    p1:Math.round(p1*1000)/10,p2:Math.round(p2*1000)/10,p3:Math.round(p3*1000)/10,
+    bars:{sqCpa:Math.round(n_sqCpa[i]*100),rvCpa:Math.round(n_rvCpa[i]*100),s2r:Math.round(n_s2r[i]*100),
+      qShare:Math.round(n_qShare[i]*100),rShare:Math.round(n_rShare[i]*100),scale:Math.round(n_budScale[i]*100),
+      q2t:Math.round(n_q2t[i]*100),t2r:Math.round(n_t2r[i]*100),cv:Math.round(n_cv[i]*100),elast:Math.round(n_elast[i]*100)}
+  };
+});
+
+// Momentum (değişmedi)
 const allYms=Object.keys(aM(fM(M))).sort();
 if(allYms.length>=6){
-const recent3=allYms.slice(-3),prev3=allYms.slice(-6,-3);
-results.forEach(r=>{
-const rRecent={c:0,q:0,r:0},rPrev={c:0,q:0,r:0};
-fM(M).forEach(row=>{
-if(row.h!==r.k)return;
-if(recent3.includes(row.ym)){rRecent.c+=row.c||0;rRecent.q+=row.q||0;rRecent.r+=row.r||0}
-if(prev3.includes(row.ym)){rPrev.c+=row.c||0;rPrev.q+=row.q||0;rPrev.r+=row.r||0}
-});
-const qMom=rPrev.q>0?((rRecent.q-rPrev.q)/rPrev.q)*100:0;
-const cpaPrev=rPrev.q>0?rPrev.c/rPrev.q:0;
-const cpaRecent=rRecent.q>0?rRecent.c/rRecent.q:0;
-const cpaMom=cpaPrev>0?((cpaRecent-cpaPrev)/cpaPrev)*100:0;
-r.momentum={qMom:Math.round(qMom*10)/10,cpaMom:Math.round(cpaMom*10)/10};
-r.momLabel=qMom>10?'up':qMom<-10?'dn':'flat';
-r.momText=qMom>10?`Sorgu ▲${qMom.toFixed(0)}%`:qMom<-10?`Sorgu ▼${Math.abs(qMom).toFixed(0)}%`:'Stabil';
-});
+  const recent3=allYms.slice(-3),prev3=allYms.slice(-6,-3);
+  results.forEach(r=>{
+    const rR={c:0,q:0,r:0},rP={c:0,q:0,r:0};
+    fM(M).forEach(row=>{
+      if(row.h!==r.k)return;
+      if(recent3.includes(row.ym)){rR.c+=row.c||0;rR.q+=row.q||0;rR.r+=row.r||0}
+      if(prev3.includes(row.ym)){rP.c+=row.c||0;rP.q+=row.q||0;rP.r+=row.r||0}
+    });
+    const qMom=rP.q>0?((rR.q-rP.q)/rP.q)*100:0;
+    const cpaPrev=rP.q>0?rP.c/rP.q:0,cpaRecent=rR.q>0?rR.c/rR.q:0;
+    const cpaMom=cpaPrev>0?((cpaRecent-cpaPrev)/cpaPrev)*100:0;
+    r.momentum={qMom:Math.round(qMom*10)/10,cpaMom:Math.round(cpaMom*10)/10};
+    r.momLabel=qMom>10?'up':qMom<-10?'dn':'flat';
+    r.momText=qMom>10?`Sorgu ▲${qMom.toFixed(0)}%`:qMom<-10?`Sorgu ▼${Math.abs(qMom).toFixed(0)}%`:'Stabil';
+  });
 }
-
-// === ELASTICITY: Monthly cost vs sorgu correlation ===
-results.forEach(r=>{
-const monthData=[];
-fM(M).forEach(row=>{
-if(row.h!==r.k)return;
-const ym=row.ym;
-const existing=monthData.find(m=>m.ym===ym);
-if(existing){existing.c+=row.c||0;existing.q+=row.q||0}
-else monthData.push({ym,c:row.c||0,q:row.q||0});
-});
-if(monthData.length>=4&&r.cost>0){
-// Simple elasticity: %change in output / %change in input
-const sorted=monthData.sort((a,b)=>a.ym.localeCompare(b.ym));
-let sumElast=0,countElast=0;
-for(let i=1;i<sorted.length;i++){
-if(sorted[i-1].c>0&&sorted[i-1].q>0&&sorted[i].c>0){
-const costChg=(sorted[i].c-sorted[i-1].c)/sorted[i-1].c;
-const qChg=(sorted[i].q-sorted[i-1].q)/sorted[i-1].q;
-if(Math.abs(costChg)>0.05){sumElast+=qChg/costChg;countElast++}
-}}
-r.elasticity=countElast>0?Math.round(sumElast/countElast*100)/100:null;
-r.elastLabel=r.elasticity!=null?(r.elasticity>0.8?'Yüksek':r.elasticity>0.4?'Orta':'Düşük'):null;
-}else{r.elasticity=null;r.elastLabel=null}
-});
 
 results.sort((a,b)=>b.score-a.score);
 return results;
@@ -1188,65 +1380,362 @@ return Object.entries(cptMap).filter(([k,d])=>d.s>0||d.c>0).sort((a,b)=>b[1].c-a
 }
 
 function scoreCptBreakdown(cptEntries,parentData){
-// Score campaign types within a channel using simplified 3-pillar model
-// Context: parent channel's totals for relative share calculation
+// [v2] Change 2: elastisite null→0.3 (cpt seviyesinde aylık veri yetersiz)
+// [v2] Change 3: P3 düzeltildi q2t(12%) + t2r(13%) = 25% (eskiden p3=20%, bölüm hatası)
+// [v2] Normalizasyon bölücü kaldırıldı — pillar toplamı artık doğru şekilde 1.0
 const totalC=cptEntries.reduce((a,[k,d])=>a+d.c,0)||1;
 const totalQ=cptEntries.reduce((a,[k,d])=>a+d.q,0)||1;
 const totalR=cptEntries.reduce((a,[k,d])=>a+d.r,0)||1;
 
 const raw=cptEntries.map(([k,d])=>({
-k,name:MAP.cpt[k]||k,color:CPC[MAP.cpt[k]]||'#999',
-cost:d.c,cShare:d.c/totalC*100,
-sqCpa:d.q>0?d.c/d.q:null,
-rvCpa:d.r>0?d.c/d.r:null,
-s2r:d.s>0?d.r/d.s*100:0,
-qShare:d.q/totalQ*100,rShare:d.r/totalR*100,
-budgetScale:Math.log1p(d.c),
-q2t:d.q>0?d.k/d.q*100:0,
-t2r:d.k>0?d.r/d.k*100:0,
-sorgu:d.q,teklif:d.k,randevu:d.r,sessions:d.s
+  k,name:MAP.cpt[k]||k,color:CPC[MAP.cpt[k]]||'#999',
+  cost:d.c,cShare:d.c/totalC*100,
+  sqCpa:d.q>0?d.c/d.q:null,rvCpa:d.r>0?d.c/d.r:null,
+  s2r:d.s>0?d.r/d.s*100:0,
+  qShare:d.q/totalQ*100,rShare:d.r/totalR*100,
+  budgetScale:Math.log1p(d.c),
+  q2t:d.q>0?d.k/d.q*100:0,t2r:d.k>0?d.r/d.k*100:0,
+  sorgu:d.q,teklif:d.k,randevu:d.r,sessions:d.s
 }));
 
-if(raw.length<2)return raw.map(r=>({...r,score:50,tier:'A',p1:20,p2:15,p3:12.5,
-bars:{sqCpa:50,rvCpa:50,s2r:50,qShare:50,rShare:50,scale:50,q2t:50,t2r:50}}));
+if(raw.length<2)return raw.map(r=>({...r,score:50,tier:'A',p1:20,p2:15,p3:12.5,p3Corrected:true,
+  bars:{sqCpa:50,rvCpa:50,s2r:50,qShare:50,rShare:50,scale:50,q2t:50,t2r:50}}));
 
 function nLB(arr,key){
-const vals=arr.map(r=>{const v=r[key];return v!=null&&v>0?Math.log1p(v):null});
-const valid=vals.filter(v=>v!=null);if(!valid.length)return arr.map(()=>0);
-const pen=Math.max(...valid)*1.5;const filled=vals.map(v=>v!=null?v:pen);
-const mn=Math.min(...filled),mx=Math.max(...filled);
-if(mx===mn)return arr.map(()=>0.5);return filled.map(v=>1-(v-mn)/(mx-mn));
+  const vals=arr.map(r=>{const v=r[key];return v!=null&&v>0?Math.log1p(v):null});
+  const valid=vals.filter(v=>v!=null);if(!valid.length)return arr.map(()=>0);
+  const pen=Math.max(...valid)*1.5;const filled=vals.map(v=>v!=null?v:pen);
+  const mn=Math.min(...filled),mx=Math.max(...filled);
+  if(mx===mn)return arr.map(()=>0.5);return filled.map(v=>1-(v-mn)/(mx-mn));
 }
-function nHB(arr,key){
-const vals=arr.map(r=>r[key]||0);const mn=Math.min(...vals),mx=Math.max(...vals);
-if(mx===mn)return arr.map(()=>0.5);return vals.map(v=>(v-mn)/(mx-mn));
-}
+function nHB(arr,key){const vals=arr.map(r=>r[key]||0);const mn=Math.min(...vals),mx=Math.max(...vals);if(mx===mn)return arr.map(()=>0.5);return vals.map(v=>(v-mn)/(mx-mn))}
 
 const n1=nLB(raw,'sqCpa'),n2=nLB(raw,'rvCpa'),n3=nHB(raw,'s2r');
 const n4=nHB(raw,'qShare'),n5=nHB(raw,'rShare'),n6=nHB(raw,'budgetScale');
 const n7=nHB(raw,'q2t'),n8=nHB(raw,'t2r');
+const elastNorm=0.3; // cpt seviyesinde elastisite hesaplanamıyor → null→0.3 kuralı
 
 return raw.map((r,i)=>{
-const p1=n1[i]*0.15+n2[i]*0.15+n3[i]*0.10;
-const p2=n4[i]*0.15+n5[i]*0.10+n6[i]*0.10;
-const p3=n7[i]*0.10+n8[i]*0.10;
-let score=(p1+p2+p3)*100/(0.4+0.35+0.2)*1; // normalize to ~100 scale
-// Volume gate within channel: <1% of channel cost → cap at 65
-if(r.cShare<1&&r.cost>0)score=Math.min(score,65);
-if(r.cost===0)score=Math.min(score,55);
-score=Math.min(100,Math.max(0,score));
-const tier=score>=65?'S':score>=50?'A':score>=35?'B':'C';
-
-let rec;
-if(tier==='S')rec='Ölçeklendir';
-else if(tier==='A')rec='Koru';
-else if(tier==='B'&&r.cShare>15)rec='Optimize et';
-else if(tier==='B')rec='İzle';
-else rec=r.cShare>10?'Azalt':'Düşük öncelik';
-
-return{...r,score:Math.round(score*10)/10,tier,rec,p1:Math.round(p1*1000)/10,p2:Math.round(p2*1000)/10,p3:Math.round(p3*1000)/10,
-bars:{sqCpa:Math.round(n1[i]*100),rvCpa:Math.round(n2[i]*100),s2r:Math.round(n3[i]*100),qShare:Math.round(n4[i]*100),rShare:Math.round(n5[i]*100),scale:Math.round(n6[i]*100),q2t:Math.round(n7[i]*100),t2r:Math.round(n8[i]*100)}};
+  const p1=n1[i]*0.15+n2[i]*0.15+n3[i]*0.10;                // 40%
+  const p2=n4[i]*0.15+n5[i]*0.10+n6[i]*0.05+elastNorm*0.05; // 35% [Change 2]
+  const p3=n7[i]*0.12+n8[i]*0.13;                            // 25% [Change 3 fix]
+  let score=(p1+p2+p3)*100; // artık doğru: maks = 1.0 × 100
+  if(r.cShare<1&&r.cost>0)score=Math.min(score,65);
+  if(r.cost===0)score=Math.min(score,55);
+  score=Math.min(100,Math.max(0,score));
+  const tier=score>=65?'S':score>=50?'A':score>=35?'B':'C';
+  let rec;
+  if(tier==='S')rec='Ölçeklendir';
+  else if(tier==='A')rec='Koru';
+  else if(tier==='B'&&r.cShare>15)rec='Optimize et';
+  else if(tier==='B')rec='İzle';
+  else rec=r.cShare>10?'Azalt':'Düşük öncelik';
+  return{...r,score:Math.round(score*10)/10,tier,rec,p3Corrected:true,
+    p1:Math.round(p1*1000)/10,p2:Math.round(p2*1000)/10,p3:Math.round(p3*1000)/10,
+    bars:{sqCpa:Math.round(n1[i]*100),rvCpa:Math.round(n2[i]*100),s2r:Math.round(n3[i]*100),
+      qShare:Math.round(n4[i]*100),rShare:Math.round(n5[i]*100),scale:Math.round(n6[i]*100),
+      q2t:Math.round(n7[i]*100),t2r:Math.round(n8[i]*100)}};
 }).sort((a,b)=>b.score-a.score);
+}
+
+// Sanity check: browser console'da validateScores(calcScoresV2(aChPrPl(fM(M)))) ile test et
+function validateScores(scores){
+  const paid=scores.filter(s=>s.cost>0);
+  const tiers={S:0,A:0,B:0,C:0};
+  paid.forEach(s=>tiers[s.tier]=(tiers[s.tier]||0)+1);
+  const unique=Object.values(tiers).filter(v=>v>0).length;
+  if(unique<=1)console.warn('[SCORE VALIDATE] WARN: tier distribution collapsed — tüm kanallar aynı tier',tiers);
+  else if(tiers.S>0&&tiers.C>0)console.log('[SCORE VALIDATE] PASS — tier spread sağlıklı',tiers);
+  else console.log('[SCORE VALIDATE] PASS (S veya C eksik ama spread mevcut)',tiers);
+  const overrides=paid.filter(s=>s.cpaOverride&&s.cpaOverride.triggered);
+  if(overrides.length)console.log(`[SCORE VALIDATE] ${overrides.length} kanal tier override aldı:`,overrides.map(s=>`${s.name}(${s.cpaOverride.severity}×)`).join(', '));
+  const rtbBonus=paid.filter(s=>s.rtbBonus);
+  if(rtbBonus.length)console.log('[SCORE VALIDATE] RTB cross-product bonus:',rtbBonus.map(s=>s.name).join(', '));
+  // Model B: breakdown summary
+  const withBd=paid.filter(s=>s.breakdownSummary);
+  if(withBd.length){
+    console.log('[SCORE VALIDATE] Model B breakdown özeti:');
+    withBd.forEach(s=>{
+      const bd=s.breakdownSummary;
+      console.log(`  ${s.name}: ${bd.sufficient}/${bd.total} yeterli kırılım [${bd.keys.join(', ')}]`);
+      if(s.breakdown)Object.entries(s.breakdown).forEach(([k,b])=>{
+        const eff=b.effScore!=null?`eff=${b.effScore}`:'yetersiz';
+        const cpa=b.sqCpa?`sqCPA=₺${b.sqCpa.toFixed(0)}`:(b.kpcCpa?`kpcCPA=₺${b.kpcCpa.toFixed(0)}`:'');
+        console.log(`    ${k}: cost=₺${Math.round(b.cost)} ${cpa} ${eff}`);
+      });
+    });
+  }
+  return scores;
+}
+
+// ====== MODEL B: calcScoresV2 — Ürün × Platform Bazlı Skor ======
+function calcScoresV2(chPrPlData){
+const cfg=SCORE_CFG;
+
+// 1. Group by channel, build aggregates
+const byChannel={};
+Object.entries(chPrPlData).forEach(([key,d])=>{
+  const ch=d.ch;
+  if(!byChannel[ch])byChannel[ch]={entries:{},agg:{c:0,s:0,q:0,k:0,r:0,kp:0,i:0,l:0,im:0}};
+  byChannel[ch].entries[key]=d;
+  const a=byChannel[ch].agg;
+  a.c+=d.c||0;a.s+=d.s||0;a.q+=d.q||0;a.k+=d.k||0;a.r+=d.r||0;a.kp+=d.kp||0;a.i+=d.i||0;a.l+=d.l||0;a.im+=d.im||0;
+});
+
+const paidChs=Object.keys(byChannel).filter(ch=>byChannel[ch].agg.c>0);
+const totalC=paidChs.reduce((a,ch)=>a+byChannel[ch].agg.c,0)||1;
+const totalQ=paidChs.reduce((a,ch)=>a+byChannel[ch].agg.q,0)||1;
+const totalR=paidChs.reduce((a,ch)=>a+byChannel[ch].agg.r,0)||1;
+
+// Helper: normalized anchored efficiency score (scalar)
+function normAnch(v,tgt){
+  if(!tgt||v==null||v<=0)return 0;
+  return normAnchored(v,tgt*cfg.ANCHOR_GOOD_MULT,tgt*cfg.ANCHOR_BAD_MULT);
+}
+
+// 2. Build raw channel objects with per-breakdown efficiency
+const raw=paidChs.map(ch=>{
+  const chName=MAP.ch[ch]||ch;
+  const isRTB=ch===cfg.RTB_CHANNEL_KEY;
+  const {entries,agg}=byChannel[ch];
+
+  // Per-breakdown scoring
+  const breakdown={};
+  let bdWeightedEff=0,bdTotalCost=0,bdSufficient=0;
+
+  Object.entries(entries).forEach(([key,d])=>{
+    const[,pr,pl]=key.split('|');
+    const bdKey=`${pr}|${pl}`;
+    const isTS=pr==='TS';
+    // Sufficient check — TS'te ana KPI randevu, sorgu secondary filtre
+    const mainConv=isTS?d.r:d.kp;
+    const secondaryOk=isTS?(d.q>=50):true;
+    const sufficient=(d.c>=cfg.MIN_COST)&&(mainConv>=cfg.MIN_CONV)&&secondaryOk;
+
+    const sqCpa=d.q>0?d.c/d.q:null;
+    const rvCpa=d.r>0?d.c/d.r:null;
+    const kpcCpa=d.kp>0?d.c/d.kp:null;
+    const sqTgt=pl==='A'?cfg.TS_APP_SQ_CPA:cfg.TS_WEB_SQ_CPA;
+    const rvTgt=pl==='A'?cfg.TS_APP_RV_CPA:cfg.TS_WEB_RV_CPA;
+
+    let effScore=null;
+    if(sufficient){
+      if(isTS){
+        const nSq=normAnch(sqCpa,sqTgt);
+        const nRv=normAnch(rvCpa,rvTgt);
+        const wSq=sqCpa!=null?1:0,wRv=rvCpa!=null?1:0;
+        effScore=(nSq*wSq+nRv*wRv)/(wSq+wRv||1);
+      }else{
+        let nKpc=normAnch(kpcCpa,cfg.LST_KPC_CPA);
+        if(isRTB&&rvCpa!=null){
+          const nRv=normAnch(rvCpa,cfg.TS_WEB_RV_CPA);
+          nKpc=nKpc*cfg.RTB_DUAL_KPC_W+nRv*cfg.RTB_DUAL_RV_W;
+        }
+        effScore=nKpc;
+      }
+      bdWeightedEff+=effScore*d.c;
+      bdTotalCost+=d.c;
+      bdSufficient++;
+    }
+
+    breakdown[bdKey]={
+      pr,pl,cost:d.c,q:d.q,r:d.r,kp:d.kp,sufficient,
+      effScore:effScore!=null?Math.round(effScore*100):null,
+      sqCpa,rvCpa,kpcCpa,
+      sqTgt:isTS?sqTgt:null,rvTgt:isTS?rvTgt:null,kpcTgt:!isTS?cfg.LST_KPC_CPA:null
+    };
+  });
+
+  // P1 = cost-weighted breakdown efficiency
+  const p1Norm=bdTotalCost>0?bdWeightedEff/bdTotalCost:0;
+
+  const cShare=agg.c/totalC*100;
+  const qShare=agg.q/totalQ*100;
+  const rShare=agg.r/totalR*100;
+  const sqCpa=agg.q>0?agg.c/agg.q:null;
+  const rvCpaRaw=agg.r>0?agg.c/agg.r:null;
+  const rvCpaScore=isRTB&&rvCpaRaw!=null?rvCpaRaw*cfg.RTB_CROSS_BONUS:rvCpaRaw;
+
+  return{
+    ch,chName,isRTB,agg,
+    cShare,qShare,rShare,sqCpa,rvCpaRaw,rvCpaScore,
+    p1Norm,bdSufficient,bdTotalCost,
+    breakdown,breakdownKeys:Object.keys(breakdown),
+    budgetScale:Math.log1p(agg.c),
+    q2t:agg.q>0?agg.k/agg.q*100:0,
+    t2r:agg.k>0?agg.r/agg.k*100:0,
+    sorgu:agg.q,teklif:agg.k,randevu:agg.r,sessions:agg.s,clicks:agg.l,imp:agg.im
+  };
+});
+
+// 3. Relative normalization for P2/P3
+function normHB(arr,key){const vals=arr.map(r=>r[key]||0);const mn=Math.min(...vals),mx=Math.max(...vals);if(mx===mn)return arr.map(()=>0.5);return vals.map(v=>(v-mn)/(mx-mn))}
+// Scoped normalization: within-group min-max, out-of-group → 0.5 (neutral)
+function normHBGroup(fullRaw,subRaw,key){
+  const subVals=subRaw.map(r=>r[key]||0);
+  const mn=Math.min(...subVals),mx=Math.max(...subVals);
+  return fullRaw.map(r=>{
+    if(!subRaw.includes(r))return 0.5;
+    if(mx===mn)return 0.5;
+    return((r[key]||0)-mn)/(mx-mn);
+  });
+}
+
+// Dominant product per channel (TS vs Listing by cost)
+const totalKp=paidChs.reduce((a,ch)=>a+byChannel[ch].agg.kp,0)||1;
+raw.forEach(r=>{
+  const tsCost=Object.entries(r.breakdown).filter(([k])=>k.startsWith('TS')).reduce((s,[,b])=>s+b.cost,0);
+  const lstCost=Object.entries(r.breakdown).filter(([k])=>!k.startsWith('TS')).reduce((s,[,b])=>s+b.cost,0);
+  r.dominantPr=tsCost>=lstCost?'TS':'LS';
+  r.kpcShare=r.agg.kp/totalKp*100;
+  r.kpcRate=r.agg.s>0?r.agg.kp/r.agg.s*100:0;
+  r.s2r=r.agg.s>0?r.agg.r/r.agg.s*100:0;
+});
+const tsRaw=raw.filter(r=>r.dominantPr==='TS');
+const lstRaw=raw.filter(r=>r.dominantPr==='LS');
+
+const n_qShare=normHBGroup(raw,tsRaw,'qShare');
+const n_rShare=normHBGroup(raw,tsRaw,'rShare');
+const n_q2t=normHBGroup(raw,tsRaw,'q2t');
+const n_t2r=normHBGroup(raw,tsRaw,'t2r');
+const n_kpcShare=normHBGroup(raw,lstRaw,'kpcShare');
+const n_kpcRate=normHBGroup(raw,lstRaw,'kpcRate');
+const n_s2r=normHB(raw,'s2r');
+const n_budScale=normHB(raw,'budgetScale');
+
+// CV (monthly consistency)
+const monthlyByCh={};
+fM(M).forEach(r=>{const k=r.h+'|'+r.ym;if(!monthlyByCh[k])monthlyByCh[k]={c:0,q:0,h:r.h};monthlyByCh[k].c+=r.c||0;monthlyByCh[k].q+=r.q||0});
+const cvByChannel={};
+raw.forEach(r=>{
+  const cpas=[];Object.values(monthlyByCh).forEach(v=>{if(v.h===r.ch&&v.c>0&&v.q>0)cpas.push(v.c/v.q)});
+  if(cpas.length>=3){const m=cpas.reduce((a,b)=>a+b,0)/cpas.length;cvByChannel[r.ch]=Math.sqrt(cpas.reduce((a,b)=>a+(b-m)**2,0)/cpas.length)/m}
+  else cvByChannel[r.ch]=1;
+});
+const cvVals=raw.map(r=>cvByChannel[r.ch]||1);
+const cvMn=Math.min(...cvVals),cvMx=Math.max(...cvVals);
+const n_cv=cvVals.map(v=>cvMx>cvMn?1-(v-cvMn)/(cvMx-cvMn):0.5);
+
+// Elasticity
+const elastByChannel={};
+raw.forEach(r=>{
+  const md=[];
+  fM(M).forEach(row=>{if(row.h!==r.ch)return;const ex=md.find(m=>m.ym===row.ym);if(ex){ex.c+=row.c||0;ex.q+=row.q||0}else md.push({ym:row.ym,c:row.c||0,q:row.q||0})});
+  if(md.length>=4&&r.agg.c>0){
+    const s=md.sort((a,b)=>a.ym.localeCompare(b.ym));let su=0,cnt=0;
+    for(let i=1;i<s.length;i++){if(s[i-1].c>0&&s[i-1].q>0&&s[i].c>0){const dC=(s[i].c-s[i-1].c)/s[i-1].c,dQ=(s[i].q-s[i-1].q)/s[i-1].q;if(Math.abs(dC)>0.05){su+=dQ/dC;cnt++}}}
+    elastByChannel[r.ch]=cnt>0?Math.round(su/cnt*100)/100:null;
+  }else elastByChannel[r.ch]=null;
+});
+function normElast(e){if(e==null)return 0.3;return Math.max(0,Math.min(1,e))}
+const n_elast=raw.map(r=>normElast(elastByChannel[r.ch]));
+
+// 4. Compute final per-channel scores
+const results=raw.map((r,i)=>{
+  // P1: anchored efficiency (0.40 weight) — from breakdowns
+  const p1=r.p1Norm*0.40;
+  // P2/P3: product-aware — Listing kanalları kpcShare/kpcRate kullanır
+  const isLst=r.dominantPr==='LS';
+  const p2=isLst
+    ?(n_kpcShare[i]*0.25+n_budScale[i]*0.05+n_elast[i]*0.05)
+    :(n_qShare[i]*0.15+n_rShare[i]*0.10+n_budScale[i]*0.05+n_elast[i]*0.05);
+  const p3=isLst
+    ?(n_kpcRate[i]*0.15+n_cv[i]*0.10)
+    :(n_q2t[i]*0.07+n_t2r[i]*0.08+n_cv[i]*0.10);
+  let score=(p1+p2+p3)*100;
+  if(r.cShare<0.1&&r.agg.c>0)score=Math.min(score,60);
+  if(r.agg.c===0)score=Math.min(score,55);
+  const scoreFinal=Math.round(score*10)/10;
+  let tier=score>=65?'S':score>=50?'A':score>=35?'B':'C';
+
+  // CPA Floor Override — platform filtresine göre doğru hedef seç
+  let cpaOverride={triggered:false,reason:'',severity:0};
+  let sqTgt,rvTgt;
+  if(S.p==='A'){sqTgt=cfg.TS_APP_SQ_CPA;rvTgt=cfg.TS_APP_RV_CPA}
+  else if(S.p==='W'){sqTgt=cfg.TS_WEB_SQ_CPA;rvTgt=cfg.TS_WEB_RV_CPA}
+  else{sqTgt=(cfg.TS_WEB_SQ_CPA+cfg.TS_APP_SQ_CPA)/2;rvTgt=(cfg.TS_WEB_RV_CPA+cfg.TS_APP_RV_CPA)/2}
+  // "all" modda 1-kademe eşiği biraz gevşet (mixed platform karışımı)
+  const floor1x=S.p==='all'?cfg.CPA_FLOOR_2X+0.5:cfg.CPA_FLOOR_2X;
+  const sqR=r.sqCpa!=null?r.sqCpa/sqTgt:0;
+  const rvR=r.rvCpaScore!=null?r.rvCpaScore/rvTgt:0;
+  const worst=Math.max(sqR,rvR);
+  const worstLabel=sqR>=rvR?'Sorgu':'Randevu';
+  const worstVal=sqR>=rvR?r.sqCpa:r.rvCpaScore;
+  const worstTgtVal=sqR>=rvR?sqTgt:rvTgt;
+  if(worst>=cfg.CPA_FLOOR_3X){
+    cpaOverride={triggered:true,severity:2,reason:`${worstLabel} CPA ₺${worstVal?.toFixed(0)} (hedef: ₺${worstTgtVal.toFixed(0)}, ${worst.toFixed(1)}× — 2 kademe override)`};
+    const tiers=['C','B','A','S'];tier=tiers[Math.max(0,tiers.indexOf(tier)-2)];
+  }else if(worst>=floor1x){
+    cpaOverride={triggered:true,severity:1,reason:`${worstLabel} CPA ₺${worstVal?.toFixed(0)} (hedef: ₺${worstTgtVal.toFixed(0)}, ${worst.toFixed(1)}× — 1 kademe override)`};
+    const tiers=['C','B','A','S'];tier=tiers[Math.max(0,tiers.indexOf(tier)-1)];
+  }
+
+  const elasticity=elastByChannel[r.ch];
+  const elastLabel=elasticity!=null?(elasticity>0.8?'Yüksek':elasticity>0.4?'Orta':'Düşük'):null;
+
+  let rec,recCls;
+  if(tier==='S'&&r.cShare<30){rec='Bütçe artırılabilir — yüksek verimlilik, ölçeklenme potansiyeli';recCls='inc'}
+  else if(tier==='S'){rec='Mevcut seviyeyi koru — ana performans motoru';recCls='hold'}
+  else if(tier==='A'&&r.cShare<5){rec='Test bütçesi artırılabilir — verimli ama hacim düşük';recCls='inc'}
+  else if(tier==='A'){rec='Koru ve optimize et';recCls='hold'}
+  else if(tier==='B'&&r.cShare>5){rec='Optimizasyon gerekli — yüksek harcama, düşük verimlilik';recCls='dec'}
+  else if(tier==='B'){rec='İzlemeye devam';recCls='hold'}
+  else if(tier==='C'&&r.cShare>1){rec='Bütçe azaltılmalı veya yeniden yapılandırılmalı';recCls='cut'}
+  else{rec='Düşük öncelik';recCls='hold'}
+
+  const rtbBonus=r.isRTB&&r.rvCpaRaw!=null;
+  console.log(`[SCOREv2] ${r.chName}: p1Norm=${(r.p1Norm*100).toFixed(0)} bds=${r.bdSufficient}/${r.breakdownKeys.length} score=${scoreFinal} tier=${tier}${cpaOverride.triggered?' OVERRIDE':''}`);
+
+  return{
+    k:r.ch,name:r.chName,color:CHC[r.chName]||'#999',
+    cost:r.agg.c,cShare:r.cShare,
+    sqCpa:r.sqCpa,rvCpa:r.rvCpaRaw,rvCpaScore:r.rvCpaScore,
+    qShare:r.qShare,rShare:r.rShare,
+    sorgu:r.sorgu,teklif:r.teklif,randevu:r.randevu,sessions:r.sessions,clicks:r.clicks,imp:r.imp,
+    score:scoreFinal,tier,rec,recCls,
+    elasticity,elastLabel,elastNorm:normElast(elasticity),
+    cpaOverride,rtbBonus,
+    anchorActive:true,anchorBadMult:cfg.ANCHOR_BAD_MULT,p3Corrected:false,
+    p1:Math.round(p1*1000)/10,p2:Math.round(p2*1000)/10,p3:Math.round(p3*1000)/10,
+    bars:(()=>{
+      const topBd=Object.values(r.breakdown).filter(b=>b.sufficient).sort((a,b)=>b.cost-a.cost)[0];
+      return{
+        sqCpa:topBd&&topBd.sqCpa&&topBd.sqTgt?Math.round(normAnch(topBd.sqCpa,topBd.sqTgt)*100):Math.round(r.p1Norm*100),
+        rvCpa:topBd&&topBd.rvCpa&&topBd.rvTgt?Math.round(normAnch(topBd.rvCpa,topBd.rvTgt)*100)
+          :topBd&&topBd.kpcCpa&&topBd.kpcTgt?Math.round(normAnch(topBd.kpcCpa,topBd.kpcTgt)*100)
+          :Math.round(r.p1Norm*100),
+        s2r:Math.round(n_s2r[i]*100),
+        qShare:Math.round(n_qShare[i]*100),rShare:Math.round(n_rShare[i]*100),scale:Math.round(n_budScale[i]*100),
+        q2t:Math.round(n_q2t[i]*100),t2r:Math.round(n_t2r[i]*100),cv:Math.round(n_cv[i]*100),elast:Math.round(n_elast[i]*100)
+      };
+    })(),
+    breakdown:r.breakdown,
+    breakdownSummary:{total:r.breakdownKeys.length,sufficient:r.bdSufficient,keys:r.breakdownKeys}
+  };
+});
+
+// Momentum
+const allYms=Object.keys(aM(fM(M))).sort();
+if(allYms.length>=6){
+  const recent3=allYms.slice(-3),prev3=allYms.slice(-6,-3);
+  results.forEach(r=>{
+    const rR={c:0,q:0,r:0},rP={c:0,q:0,r:0};
+    fM(M).forEach(row=>{
+      if(row.h!==r.k)return;
+      if(recent3.includes(row.ym)){rR.c+=row.c||0;rR.q+=row.q||0;rR.r+=row.r||0}
+      if(prev3.includes(row.ym)){rP.c+=row.c||0;rP.q+=row.q||0;rP.r+=row.r||0}
+    });
+    const qMom=rP.q>0?((rR.q-rP.q)/rP.q)*100:0;
+    const cpaPrev=rP.q>0?rP.c/rP.q:0,cpaRecent=rR.q>0?rR.c/rR.q:0;
+    const cpaMom=cpaPrev>0?((cpaRecent-cpaPrev)/cpaPrev)*100:0;
+    r.momentum={qMom:Math.round(qMom*10)/10,cpaMom:Math.round(cpaMom*10)/10};
+    r.momLabel=qMom>10?'up':qMom<-10?'dn':'flat';
+    r.momText=qMom>10?`Sorgu ▲${qMom.toFixed(0)}%`:qMom<-10?`Sorgu ▼${Math.abs(qMom).toFixed(0)}%`:'Stabil';
+  });
+}
+
+results.sort((a,b)=>b.score-a.score);
+return results;
 }
 
 function renderCptBreakdown(cptEntries,parent){
@@ -1383,186 +1872,295 @@ window.updateScenario=function(){
 el.insertAdjacentHTML('beforeend',`</div>`);
 }
 
+function buildScoreHistory(){
+if(window._scoreHistory)return;
+const allYms=[...new Set(M.map(r=>r.ym))].filter(Boolean).sort();
+const history={};
+allYms.forEach(ym=>{
+  const monthData=M.filter(r=>r.ym===ym);
+  if(!monthData.length)return;
+  const scores=calcScoresV2(aChPrPl(monthData));
+  history[ym]={};
+  scores.filter(s=>s.cost>0).forEach(s=>{history[ym][s.k]={score:s.score,tier:s.tier,p1:s.p1,p2:s.p2,p3:s.p3,cost:s.cost}});
+});
+window._scoreHistory=history;
+window._scoreHistoryYms=allYms;
+}
+
+function renderScoreHistory(paid,top10,otherChannels){
+const history=window._scoreHistory;
+const yms=window._scoreHistoryYms;
+if(!history||!yms||yms.length<2)return;
+const active=window._activeHistoryChannels;
+const tierColors={S:'var(--gn)',A:'var(--bl)',B:'var(--or)',C:'var(--rd)'};
+const toggleEl=document.getElementById('sh-toggles');
+if(toggleEl){
+  toggleEl.innerHTML='';
+  top10.forEach(chKey=>{
+    const s=paid.find(x=>x.k===chKey);if(!s)return;
+    const isActive=active.has(chKey);
+    const chip=document.createElement('span');
+    chip.style.cssText=`display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:12px;font-size:10px;font-family:var(--m);font-weight:600;cursor:pointer;transition:.15s;user-select:none;background:${isActive?s.color+'22':'var(--bg2)'};color:${isActive?s.color:'var(--tx3)'};border:1.5px solid ${isActive?s.color:'var(--bd)'};`;
+    chip.innerHTML=`<span style="width:6px;height:6px;border-radius:50%;background:${isActive?s.color:'var(--bd)'}"></span>${s.name}`;
+    chip.onclick=()=>{if(active.has(chKey))active.delete(chKey);else active.add(chKey);renderScoreHistory(paid,top10,otherChannels)};
+    toggleEl.appendChild(chip);
+  });
+}
+const otherToggleEl=document.getElementById('sh-other-toggle');
+const otherChipsEl=document.getElementById('sh-other-chips');
+if(otherChannels.length&&otherToggleEl){
+  otherToggleEl.style.display='block';
+  if(otherChipsEl){
+    otherChipsEl.innerHTML='';
+    otherChannels.forEach(chKey=>{
+      const s=paid.find(x=>x.k===chKey);if(!s)return;
+      const isActive=active.has(chKey);
+      const chip=document.createElement('span');
+      chip.style.cssText=`display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:12px;font-size:10px;font-family:var(--m);font-weight:600;cursor:pointer;transition:.15s;user-select:none;background:${isActive?s.color+'22':'var(--bg2)'};color:${isActive?s.color:'var(--tx3)'};border:1.5px solid ${isActive?s.color:'var(--bd)'};`;
+      chip.innerHTML=`<span style="width:6px;height:6px;border-radius:50%;background:${isActive?s.color:'var(--bd)'}"></span>${s.name}`;
+      chip.onclick=()=>{if(active.has(chKey))active.delete(chKey);else active.add(chKey);renderScoreHistory(paid,top10,otherChannels)};
+      otherChipsEl.appendChild(chip);
+    });
+  }
+}
+const W=680,H=260,PAD={t:16,r:20,b:32,l:36};
+const pw=W-PAD.l-PAD.r,ph=H-PAD.t-PAD.b;
+const activeKeys=[...active];
+const tierLines=[{y:35,label:'C|B',color:'var(--or)'},{y:50,label:'B|A',color:'var(--bl)'},{y:65,label:'A|S',color:'var(--gn)'}];
+let svg=`<svg viewBox="0 0 ${W} ${H}" style="width:100%;display:block" xmlns="http://www.w3.org/2000/svg">`;
+[0,25,50,75,100].forEach(v=>{const y=PAD.t+ph-ph*(v/100);svg+=`<line x1="${PAD.l}" y1="${y}" x2="${W-PAD.r}" y2="${y}" stroke="var(--bd)" stroke-width="0.5" opacity="0.6"/>`;svg+=`<text x="${PAD.l-4}" y="${y+3}" text-anchor="end" style="font-size:8px;fill:var(--tx3);font-family:var(--m)">${v}</text>`});
+tierLines.forEach(tl=>{const y=PAD.t+ph-ph*(tl.y/100);svg+=`<line x1="${PAD.l}" y1="${y}" x2="${W-PAD.r}" y2="${y}" stroke="${tl.color}" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>`;svg+=`<text x="${W-PAD.r+3}" y="${y+3}" style="font-size:7px;fill:${tl.color};font-family:var(--m);opacity:.7">${tl.label}</text>`});
+yms.forEach((ym,i)=>{const x=PAD.l+pw*(i/(yms.length-1));svg+=`<text x="${x}" y="${H-6}" text-anchor="middle" style="font-size:8px;fill:var(--tx3);font-family:var(--m)">${ml(ym)}</text>`;svg+=`<line x1="${x}" y1="${PAD.t}" x2="${x}" y2="${PAD.t+ph}" stroke="var(--bd)" stroke-width="0.5" opacity="0.3"/>`});
+activeKeys.forEach(chKey=>{
+  const s=paid.find(x=>x.k===chKey);if(!s)return;
+  const color=s.color||'#999';
+  const points=yms.map((ym,i)=>{const d=history[ym]?.[chKey];if(!d)return null;const x=PAD.l+pw*(i/(yms.length-1));const y=PAD.t+ph-ph*(d.score/100);return{x,y,score:d.score,tier:d.tier,ym,p1:d.p1,p2:d.p2,p3:d.p3}}).filter(Boolean);
+  if(points.length<2)return;
+  const pathD=points.map((p,i)=>`${i===0?'M':'L'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ');
+  svg+=`<path d="${pathD}" fill="none" stroke="${color}" stroke-width="2" opacity="0.85" stroke-linejoin="round"/>`;
+  points.forEach(p=>{svg+=`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="4" fill="${color}" stroke="var(--sf)" stroke-width="1.5" style="cursor:pointer" onclick="showPillarDetail('${chKey}','${p.ym}')" data-ch="${chKey}" data-ym="${p.ym}"><title>${s.name} · ${ml(p.ym)} · ${p.score} (${p.tier})</title></circle>`});
+  const last=points[points.length-1];
+  svg+=`<text x="${(last.x+5).toFixed(1)}" y="${(last.y+3).toFixed(1)}" style="font-size:8px;fill:${color};font-family:var(--m);font-weight:600">${s.name.length>10?s.name.slice(0,9)+'…':s.name}</text>`;
+});
+svg+=`</svg>`;
+const chartEl=document.getElementById('sh-chart');
+if(chartEl)chartEl.innerHTML=svg;
+}
+
+function showPillarDetail(chKey,ym){
+const history=window._scoreHistory;
+const yms=window._scoreHistoryYms;
+const paid=(window._lastScores||[]).filter(s=>s.cost>0);
+const s=paid.find(x=>x.k===chKey);
+const d=history?.[ym]?.[chKey];
+if(!s||!d)return;
+const prevYm=yms[yms.indexOf(ym)-1];
+const prev=prevYm?history[prevYm]?.[chKey]:null;
+const diff=(val,prevVal,label,unit='')=>{if(prevVal==null)return`<span style="color:var(--tx3)">${label}: <b>${val.toFixed(1)}${unit}</b></span>`;const dv=val-prevVal;const c=dv>0.5?'var(--gn)':dv<-0.5?'var(--rd)':'var(--tx3)';const arrow=dv>0.5?'↑':dv<-0.5?'↓':'→';return`<span style="color:${c}">${label}: <b>${val.toFixed(1)}${unit}</b> ${arrow}${Math.abs(dv).toFixed(1)}</span>`};
+const tierColors={S:'var(--gn)',A:'var(--bl)',B:'var(--or)',C:'var(--rd)'};
+const html=`<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span style="font-weight:700;color:${s.color}">${s.name}</span><span style="font-size:9px;color:var(--tx3)">${ml(ym)}</span><span style="font-size:11px;font-weight:800;font-family:var(--m);color:${tierColors[d.tier]}">${d.score} <span style="font-size:9px">${d.tier}</span></span>${prev?`<span style="font-size:10px;color:${d.score>prev.score?'var(--gn)':'var(--rd)'}">${d.score>prev.score?'↑':'↓'}${Math.abs(d.score-prev.score).toFixed(1)} önceki aya göre</span>`:''}</div><div style="display:flex;gap:16px;flex-wrap:wrap">${diff(d.p1,prev?.p1,'Verimlilik','/40')} ${diff(d.p2,prev?.p2,'Hacim','/35')} ${diff(d.p3,prev?.p3,'Kalite','/25')}</div>`;
+const detailEl=document.getElementById('sh-pillar-detail');
+if(detailEl){detailEl.innerHTML=html;detailEl.style.display='block'}
+}
+
+function toggleOtherChannels(){
+const chipsEl=document.getElementById('sh-other-chips');
+const btnEl=document.getElementById('sh-other-btn');
+if(!chipsEl||!btnEl)return;
+const isOpen=chipsEl.style.display!=='none';
+chipsEl.style.display=isOpen?'none':'flex';
+btnEl.textContent=isOpen?'+ Diğer kanalları göster':'− Diğer kanalları gizle';
+}
+
 function renderAnalytics(){
-const el=document.getElementById('t-analytics');el.innerHTML='';
+const el=document.getElementById('t-analytics');
+
+// LOADING STATE — skeleton göster, sonra RAF ile gerçek içerik
+const sk=`<div style="background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px;opacity:.5"><div style="height:13px;width:60%;background:var(--bd);border-radius:3px;margin-bottom:10px"></div><div style="height:10px;width:40%;background:var(--bd);border-radius:3px;margin-bottom:8px"></div><div style="height:10px;width:80%;background:var(--bd);border-radius:3px"></div></div>`;
+el.innerHTML=`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;margin:14px 0">${sk.repeat(6)}</div>`;
+
+requestAnimationFrame(()=>{
+el.innerHTML='';
 injectAiBar(el,'analytics');
-const fm=fM(M);const byCh=aCh(fm);const bm=aM(fm);const ms=Object.keys(bm).sort();
+const fm=fM(M);const bm=aM(fm);const ms=Object.keys(bm).sort();
 if(!ms.length){el.innerHTML='<p style="color:var(--tx3);padding:20px">Veri yok.</p>';return}
 
-const scores=calcScores(byCh);
+const scores=calcScoresV2(aChPrPl(fm));
 window._lastScores=scores;
 const paid=scores.filter(s=>s.cost>0);
 const nonpaid=scores.filter(s=>s.cost===0);
+buildScoreHistory();
+const top10=paid.slice().sort((a,b)=>b.cost-a.cost).slice(0,10).map(s=>s.k);
+if(!window._activeHistoryChannels){window._activeHistoryChannels=new Set(top10)}
+const otherChannels=paid.filter(s=>!top10.includes(s.k)).sort((a,b)=>b.cost-a.cost).map(s=>s.k);
 
-// === SECTION 1: SCORING OVERVIEW ===
-el.insertAdjacentHTML('beforeend',`<div class="an-sec">
-<div class="an-head"><div class="an-num">1</div><div><div class="an-ht">Kanal Verimlilik Skorları</div><div class="an-sub">3 Pillar Composite Score — Efficiency + Scale + Quality</div></div></div>`);
-
-el.insertAdjacentHTML('beforeend','<div class="sec-desc">Kanal performans skorları 3 sütunlu (pillar) composite model ile hesaplanır. Her karta tıklayarak kampanya tipi detaylarını ve ölçeklenebilirlik analizini görebilirsiniz. <b>Momentum</b> badge\'i son 3 ay vs önceki 3 ayı karşılaştırır. <b>Ölçeklenebilirlik (ε)</b> bütçe artışının çıktıya dönüşüm elastikiyetini gösterir (1.0 = tam orantılı, <0.4 = azalan getiri).</div>');
-// Narrative
-const top=paid[0],second=paid[1],worst=paid[paid.length-1];
+const tierColors={S:'var(--gn)',A:'var(--bl)',B:'var(--or)',C:'var(--rd)'};
+const tierBg2={S:'var(--gn2)',A:'var(--bl2)',B:'var(--or2)',C:'var(--rd2)'};
+const tierLabel={S:'S-TIER',A:'A-TIER',B:'B-TIER',C:'C-TIER'};
 const tierCounts={S:0,A:0,B:0,C:0};paid.forEach(s=>tierCounts[s.tier]++);
-el.insertAdjacentHTML('beforeend',`<div class="an-prose">
-<b>${paid.length} paid kanal</b> değerlendirildi.
-<b class="g">${top.name}</b> <span class="m">${top.score}</span> puan ile en yüksek skoru aldı — 
-bütçenin <span class="m">${top.cShare.toFixed(1)}%</span>'ini kullanırken Sorgu'nun <span class="m">${top.qShare.toFixed(1)}%</span>'ini, 
-Randevu'nun <span class="m">${top.rShare.toFixed(1)}%</span>'ini üretiyor.
-${second?`<b>${second.name}</b> (${second.score}) ikinci sırada — Sorgu payı ${second.qShare.toFixed(1)}%.`:''}
-${worst.score<35?`<b class="r">${worst.name}</b> (${worst.score}) en düşük — bütçenin ${worst.cShare.toFixed(1)}%'i ile Sorgu'nun sadece ${worst.qShare.toFixed(1)}%'i.`:''}
-Tier dağılımı: <span class="g">${tierCounts.S} S-Tier</span>, ${tierCounts.A} A-Tier, <span class="o">${tierCounts.B} B-Tier</span>, <span class="r">${tierCounts.C} C-Tier</span>.
-</div>`);
+const totalCost=paid.reduce((a,s)=>a+s.cost,0)||1;
+const tierBudget={S:0,A:0,B:0,C:0};paid.forEach(s=>tierBudget[s.tier]=(tierBudget[s.tier]||0)+s.cost);
 
-// Methodology collapsible
-el.insertAdjacentHTML('beforeend',`<details class="method-box"><summary>Skorlama Metodolojisi</summary>
-<p style="margin-top:8px"><b>3 Sütun (Pillar) Modeli:</b></p>
-<p><b>Pillar 1 — Verimlilik (%40):</b> Sorgu CPA (%15) + Randevu CPA (%15) + Session→Randevu dönüşüm oranı (%10). CPA metrikleri <code>log-transform</code> ile normalize edilir — aşırı yüksek CPA'lar (ör: TikTok ₺28K) modeli çarpıtmaz.</p>
-<p><b>Pillar 2 — Hacim & Ölçek (%35):</b> Sorgu hacim payı (%15) + Randevu hacim payı (%10) + Bütçe absorpsiyon kapasitesi (%10, <code>log(Cost)</code> ile). Bu sütun, düşük hacimli kanalların şişirilmiş verimlilik skorlarını dengeler.</p>
-<p><b>Pillar 3 — Kalite (%25):</b> Teklif/Sorgu oranı (%10) + Randevu/Teklif oranı (%10) + CPA Tutarlılığı (%5, aylık Sorgu CPA'nın varyasyon katsayısı — düşük CV = stabil performans).</p>
-<p><b>Hacim Kapısı (Volume Gate):</b> Harcama payı <%0.1 olan kanallar maksimum 60 puanla sınırlandırılır. Sıfır bütçeli kanallar (Non-Paid) maks 55.</p>
-<p><b>Tier Sınıflandırma:</b> S ≥ 65 | A ≥ 50 | B ≥ 35 | C < 35</p>
-</details>`);
+// BÖLÜM 1 — TIER & BÜTÇE ÖZETİ BAR
+let filterTags='';
+if(S.p!=='all')filterTags+=`<span style="background:var(--bl2);color:var(--bl);border-radius:3px;padding:1px 6px;font-family:var(--m)">Platform: ${S.p==='W'?'Web':'App'}</span>`;
+if(S.pr!=='all')filterTags+=`<span style="background:var(--bl2);color:var(--bl);border-radius:3px;padding:1px 6px;font-family:var(--m)">Ürün: ${MAP.pr[S.pr]||S.pr}</span>`;
+if(ms.length<Object.keys(DIM).length)filterTags+=`<span style="background:var(--bl2);color:var(--bl);border-radius:3px;padding:1px 6px;font-family:var(--m)">${ml(S.s)}–${ml(S.e)}</span>`;
+el.insertAdjacentHTML('beforeend',`<div class="tier-bar">
+<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+${['S','A','B','C'].filter(t=>tierCounts[t]>0).map(t=>`<div class="tier-bar-item"><div class="tier-bar-dot" style="background:${tierColors[t]}"></div><span style="color:${tierColors[t]}">${t}</span><span style="color:var(--tx2)">${tierCounts[t]}</span></div>`).join('')}
+${filterTags?`<div style="display:flex;gap:5px;align-items:center;font-size:10px;flex-wrap:wrap">${filterTags}</div>`:''}
+</div>
+<div style="font-size:10px;font-family:var(--m);color:var(--tx3);display:flex;gap:8px;flex-wrap:wrap">
+${['S','A','B','C'].filter(t=>tierCounts[t]>0).map(t=>`<span style="color:${tierColors[t]}">${t}: %${(tierBudget[t]/totalCost*100).toFixed(0)}</span>`).join('<span style="color:var(--bd)"> · </span>')}
+</div></div>`);
 
-// Scorecard grid - PAID
+// BÖLÜM 2 — SİNYAL SATIRLARI
+const signals=[];
+const upMom=paid.filter(s=>s.momLabel==='up').sort((a,b)=>(b.momentum?.qMom||0)-(a.momentum?.qMom||0));
+if(upMom.length){const m=upMom[0];signals.push(`<div class="signal-item" style="color:var(--gn)">↑ <b>${m.name}</b> son 3 ayda Sorgu <b>+${m.momentum.qMom.toFixed(0)}%</b> büyüdü</div>`)}
+const overrides=paid.filter(s=>s.cpaOverride&&s.cpaOverride.triggered).sort((a,b)=>b.cpaOverride.severity-a.cpaOverride.severity);
+if(overrides.length){
+  const wo=overrides[0];const wc=wo.cpaOverride.severity===2?'var(--rd)':'var(--or)';
+  const match=wo.cpaOverride.reason.match(/(\d+\.\d+)×/);const ratio=match?match[1]:'?';
+  const lbl=wo.cpaOverride.reason.indexOf('Sorgu')===0?'Sorgu':'Randevu';
+  signals.push(`<div class="signal-item" style="color:${wc}">⚠ <b>${wo.name}</b> ${lbl} CPA hedefin <b>${ratio}×</b>'inde</div>`);
+}else{signals.push(`<div class="signal-item" style="color:var(--gn)">✓ Tüm kanallar CPA hedefi dahilinde</div>`)}
+const opp=paid.find(s=>s.tier==='S'&&s.cShare<20&&s.elastLabel!=='Düşük');
+if(opp)signals.push(`<div class="signal-item" style="color:var(--bl)">→ <b>${opp.name}</b> bütçe payı düşük (%${opp.cShare.toFixed(0)}), verimlilik yüksek</div>`);
+if(signals.length)el.insertAdjacentHTML('beforeend',`<div class="signal-row">${signals.join('')}</div>`);
+
+// BÖLÜM 2b — SKOR TRENDİ GRAFİĞİ
+el.insertAdjacentHTML('beforeend',`<div class="cc" id="score-history-wrap" style="margin-bottom:14px"><div class="cc-h"><div class="cc-t">Kanal Skor Trendi</div><div class="cc-st">Aylık composite skor — karta tıkla pillar detayını gör</div></div><div id="sh-toggles" style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px"></div><div id="sh-other-toggle" style="margin-bottom:10px;display:none"><span style="font-size:10px;color:var(--tx3);font-family:var(--m);cursor:pointer" onclick="toggleOtherChannels()" id="sh-other-btn">+ Diğer kanalları göster</span><div id="sh-other-chips" style="display:none;flex-wrap:wrap;gap:5px;margin-top:6px"></div></div><div id="sh-chart" style="position:relative"></div><div id="sh-pillar-detail" style="margin-top:8px;padding:8px 12px;background:var(--bg);border-radius:var(--r3);font-size:10.5px;font-family:var(--m);color:var(--tx2);display:none;border-left:3px solid var(--bl)"></div></div>`);
+renderScoreHistory(paid,top10,otherChannels);
+
+// BÖLÜM 3 — PAID KANAL KARTLARI
+function bdPillHtml(breakdown){
+  if(!breakdown)return'';
+  const prGroups=['TS','LS','AA','OE','GR','OT'];
+  let h='';
+  prGroups.forEach(pr=>{
+    const bds=Object.entries(breakdown).filter(([k])=>k.startsWith(pr));
+    if(!bds.length)return;
+    const suf=bds.filter(([,b])=>b.sufficient&&b.effScore!=null);
+    if(suf.length){
+      const avg=Math.round(suf.reduce((a,[,b])=>a+b.effScore,0)/suf.length);
+      const tc=avg>=65?'var(--gn)':avg>=50?'var(--bl)':avg>=35?'var(--or)':'var(--rd)';
+      const bg=avg>=65?'var(--gn2)':avg>=50?'var(--bl2)':avg>=35?'var(--or2)':'var(--rd2)';
+      const hasOverride=suf.some(([,b])=>{
+        if(b.pr==='TS'){return(b.sqCpa&&b.sqTgt&&b.sqCpa>b.sqTgt*2)||(b.rvCpa&&b.rvTgt&&b.rvCpa>b.rvTgt*2)}
+        return b.kpcCpa&&b.kpcTgt&&b.kpcCpa>b.kpcTgt*2;
+      });
+      const onTarget=suf.every(([,b])=>{
+        if(b.pr==='TS'){const sqOk=!b.sqCpa||!b.sqTgt||b.sqCpa<=b.sqTgt;const rvOk=!b.rvCpa||!b.rvTgt||b.rvCpa<=b.rvTgt;return sqOk&&rvOk;}
+        return !b.kpcCpa||!b.kpcTgt||b.kpcCpa<=b.kpcTgt;
+      });
+      const sig=hasOverride?'⚠':onTarget?'✓':'';
+      const sigColor=hasOverride?'var(--rd)':onTarget?'var(--gn)':'var(--tx3)';
+      h+=`<span class="bd-pill" style="color:${tc};background:${bg}">${pr==='LS'?'LST':pr} ${avg}${sig?`<span style="color:${sigColor};font-size:8px">${sig}</span>`:''}</span>`;
+    }else{
+      h+=`<span class="bd-pill" style="color:var(--tx3);background:var(--bg2)">${pr==='LS'?'LST':pr} ~</span>`;
+    }
+  });
+  return h;
+}
 el.insertAdjacentHTML('beforeend',`<div style="font-size:11px;font-weight:600;color:var(--tx3);margin-bottom:6px;font-family:var(--m)">PAID KANALLAR</div><div class="sc-grid" id="sc-paid"></div>`);
 const scEl=document.getElementById('sc-paid');
-paid.forEach((s,idx)=>{
-const pillarColors={S:'var(--gn)',A:'var(--bl)',B:'var(--or)',C:'var(--rd)'};
-const tierLabel={S:'S-TIER',A:'A-TIER',B:'B-TIER',C:'C-TIER'};
-
-// Get campaign type breakdown for this channel
-const chCptData=getCptBreakdown(fm,s.k);
-const hasCpt=chCptData.length>0;
-
-scEl.insertAdjacentHTML('beforeend',`<div class="sc-card tier-${s.tier.toLowerCase()}" id="sc-${idx}" onclick="openChannelDrawer('${s.k}')">
-${hasCpt?'<div class="sc-toggle" style="font-size:9px;color:var(--tx3)">Detay →</div>':''}
+paid.forEach(s=>{
+  const pills=bdPillHtml(s.breakdown);
+  scEl.insertAdjacentHTML('beforeend',`<div class="sc-card tier-${s.tier.toLowerCase()}" onclick="openChannelDrawer('${s.k}')">
 <div class="sc-top">
 <div class="sc-name"><div class="dot" style="background:${s.color}"></div>${s.name}</div>
-<div style="display:flex;align-items:center;gap:6px"><span class="sc-tier">${tierLabel[s.tier]}</span>${s.momentum?`<span class="sc-momentum ${s.momLabel}">${s.momText}</span>`:""}<span class="sc-score" style="color:${pillarColors[s.tier]}">${s.score}</span></div>
+<div style="display:flex;align-items:center;gap:6px"><span class="sc-tier">${tierLabel[s.tier]}</span>${s.momentum?`<span class="sc-momentum ${s.momLabel}">${s.momText}</span>`:''}<span class="sc-score" style="color:${tierColors[s.tier]}">${s.score}</span></div>
 </div>
-<div class="sc-bars">
-<div class="sc-bar-row"><div class="sc-bar-label">Verimlilik</div><div class="sc-bar-track"><div class="sc-bar-fill" style="width:${s.p1/40*100}%;background:var(--gn)"></div></div><div class="sc-bar-val">${s.p1}</div></div>
-<div class="sc-bar-row"><div class="sc-bar-label">Hacim</div><div class="sc-bar-track"><div class="sc-bar-fill" style="width:${s.p2/35*100}%;background:var(--bl)"></div></div><div class="sc-bar-val">${s.p2}</div></div>
-<div class="sc-bar-row"><div class="sc-bar-label">Kalite</div><div class="sc-bar-track"><div class="sc-bar-fill" style="width:${s.p3/25*100}%;background:var(--pr)"></div></div><div class="sc-bar-val">${s.p3}</div></div>
+<div class="sc-rec ${s.recCls}" style="margin-top:6px">→ ${s.rec}</div>
+${s.cpaOverride&&s.cpaOverride.triggered?`<div class="sc-override" title="${s.cpaOverride.reason}">⚠ CPA Hedef Aşımı${s.cpaOverride.severity===2?' ×2':''}↓</div>`:''}
+${s.rtbBonus?'<div class="sc-rtb-bonus">✦ Cross-product bonus</div>':''}
+${pills?`<div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:6px">${pills}</div>`:''}
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:8px">
+<span style="font-size:10px;color:var(--tx3);font-family:var(--m)">₺${fmt(s.cost)} · ${s.cShare.toFixed(1)}% bütçe</span>
+<button class="sc-detail-btn" onclick="event.stopPropagation();openChannelDrawer('${s.k}')">Detaylar →</button>
 </div>
-<div class="sc-meta">
-<div class="sc-meta-item">Harcama: <b>₺${fmt(s.cost)}</b> (${s.cShare.toFixed(1)}%)</div>
-<div class="sc-meta-item">Sorgu: <b>${ff(s.sorgu)}</b> (${s.qShare.toFixed(1)}%)</div>
-<div class="sc-meta-item">Randevu: <b>${ff(s.randevu)}</b></div>
-${s.sqCpa?`<div class="sc-meta-item">Sorgu CPA: <b>₺${s.sqCpa.toFixed(0)}</b></div>`:''}
-${s.rvCpa?`<div class="sc-meta-item">Rand. CPA: <b>₺${fmt(s.rvCpa)}</b></div>`:''}
-${s.elastLabel?`<div class="sc-meta-item">Ölçeklenebilirlik: <b>${s.elastLabel}</b> (ε=${s.elasticity})</div>`:""}
-</div>
-<div class="sc-rec ${s.recCls}">→ ${s.rec}</div>
-
 </div>`);
 });
 
-// Component detail breakdown
-el.insertAdjacentHTML('beforeend',`<div class="cc" style="margin-top:14px"><div class="cc-h"><div class="cc-t">Skor Bileşenleri (Normalize 0-100)</div></div><div id="sc-detail-tbl"></div></div>`);
-rTbl(document.getElementById('sc-detail-tbl'),[
-{l:'Kanal',k:'ch'},{l:'Skor',k:'sc',n:1},{l:'Tier',k:'tr'},
-{l:'SqCPA',k:'b1',n:1},{l:'RvCPA',k:'b2',n:1},{l:'S→R',k:'b3',n:1},
-{l:'Q Share',k:'b4',n:1},{l:'R Share',k:'b5',n:1},{l:'Scale',k:'b6',n:1},
-{l:'Q→T',k:'b7',n:1},{l:'T→R',k:'b8',n:1},{l:'Tutarlılık',k:'b9',n:1}
-],paid.map(s=>({
-ch:s.name,sc:s.score,tr:s.tier,
-b1:s.bars.sqCpa,b2:s.bars.rvCpa,b3:s.bars.s2r,
-b4:s.bars.qShare,b5:s.bars.rShare,b6:s.bars.scale,
-b7:s.bars.q2t,b8:s.bars.t2r,b9:s.bars.cv
-})));
+// BÖLÜM 4 — ACCORDION: SKORLAMA METODOLOJİSİ (kapalı)
+el.insertAdjacentHTML('beforeend',`<details class="an-accordion"><summary>Skorlama Metodolojisi <span class="acc-sub">3 Pillar · anchored normalization · tier sınırları</span></summary><div>
+<p style="margin-top:8px"><b>3 Sütun (Pillar) Modeli — Model B (Ürün × Platform):</b></p>
+<p><b>Pillar 1 — Verimlilik (%40):</b> Anchored normalization ile CPA bazlı etkinlik. TS kanalları: Sorgu CPA + Randevu CPA. Listing kanalları: KPC CPA. RTB House dual KPI: %60 KPC + %40 Randevu.</p>
+<p><b>Pillar 2 — Hacim & Ölçek (%35):</b> TS: Sorgu payı (%15) + Randevu payı (%10) + Scale (%5) + Elastisite (%5). Listing: KPC payı (%25) + Scale (%5) + Elastisite (%5).</p>
+<p><b>Pillar 3 — Kalite (%25):</b> TS: Q→T (%7) + T→R (%8) + CV (%10). Listing: KPC Rate (%15) + CV (%10).</p>
+<p><b>Anchored Normalization:</b> hedef×${SCORE_CFG.ANCHOR_GOOD_MULT}→100p, hedef×${SCORE_CFG.ANCHOR_BAD_MULT}→0p. Mutlak iş hedeflerine sabitlenir.</p>
+<p><b>Yeterli Veri Eşiği:</b> ₺${Math.round(SCORE_CFG.MIN_COST/1000)}K+ harcama + ${SCORE_CFG.MIN_CONV}+ randevu (TS) / KPC (Listing).</p>
+<p><b>Tier:</b> S ≥ 65 | A ≥ 50 | B ≥ 35 | C < 35</p>
+</div></details>`);
 
-// Non-paid summary
-if(nonpaid.length){
-el.insertAdjacentHTML('beforeend',`<div style="font-size:11px;font-weight:600;color:var(--tx3);margin:14px 0 6px;font-family:var(--m)">NON-PAID KANALLAR (maks skor 55 — maliyet verisi yok)</div><div class="sc-grid" id="sc-nonpaid"></div>`);
-const npEl=document.getElementById('sc-nonpaid');
-nonpaid.slice(0,6).forEach(s=>{
-npEl.insertAdjacentHTML('beforeend',`<div class="sc-card tier-${s.tier.toLowerCase()}">
-<div class="sc-top"><div class="sc-name"><div class="dot" style="background:${s.color}"></div>${s.name}</div><span class="sc-score" style="color:var(--tx3)">${s.score}</span></div>
-<div class="sc-meta">
-<div class="sc-meta-item">Session: <b>${fmt(s.sessions)}</b></div>
-<div class="sc-meta-item">Sorgu: <b>${ff(s.sorgu)}</b> (${s.qShare.toFixed(1)}%)</div>
-<div class="sc-meta-item">Randevu: <b>${ff(s.randevu)}</b></div>
-</div></div>`);
-});
+}); // end requestAnimationFrame
 }
 
-el.insertAdjacentHTML('beforeend',`</div>`); // close section
-
-// === SECTION 2: COST VS OUTPUT SCATTER ===
-el.insertAdjacentHTML('beforeend',`<div class="an-sec">
-<div class="an-head"><div class="an-num">2</div><div><div class="an-ht">Maliyet Payı vs Çıktı Payı</div><div class="an-sub">Çizginin üstü = bütçesinden fazlasını üretiyor | Altı = verimsiz harcama</div></div></div>`);
-
+function renderAnalysis(){
+const el=document.getElementById('t-analysis');
+el.innerHTML='';
+injectAiBar(el,'analysis');
+const fm=fM(M);
+const scores=window._lastScores||calcScoresV2(aChPrPl(fm));
+const paid=scores.filter(s=>s.cost>0);
+const nonpaid=scores.filter(s=>s.cost===0);
+// SCATTER CHART
 const scatterItems=paid.filter(s=>s.cost>0).map(s=>({name:s.name,x:s.cShare,y:s.qShare,color:s.color,size:Math.max(6,Math.min(20,Math.sqrt(s.randevu/10)))}));
-// Draw scatter SVG
 const SW=700,SH=300,SP={t:20,r:16,b:35,l:50};
 const spw=SW-SP.l-SP.r,sph=SH-SP.t-SP.b;
 const xMax=Math.max(...scatterItems.map(i=>i.x))*1.1||1;
 const yMax=Math.max(...scatterItems.map(i=>i.y))*1.1||1;
 let scatter=`<svg class="svg-chart" viewBox="0 0 ${SW} ${SH}" preserveAspectRatio="xMidYMid meet">`;
-// Diagonal line (efficiency = 1:1)
 scatter+=`<line x1="${SP.l}" y1="${SP.t+sph}" x2="${SP.l+spw}" y2="${SP.t}" stroke="var(--bl)" stroke-width="1" stroke-dasharray="4,4" opacity=".3"/>`;
 scatter+=`<text x="${SP.l+spw-40}" y="${SP.t+12}" fill="var(--bl)" style="font-size:8px;opacity:.5">Payı = Çıktısı</text>`;
-// Grid
 for(let i=0;i<=4;i++){const y=SP.t+sph-sph*(i/4);const x=SP.l+spw*(i/4);scatter+=`<line class="grid-line" x1="${SP.l}" y1="${y}" x2="${SW-SP.r}" y2="${y}"/><text x="${SP.l-6}" y="${y+3}" text-anchor="end" style="font-size:9px">${(yMax*i/4).toFixed(0)}%</text>`;scatter+=`<line class="grid-line" x1="${x}" y1="${SP.t}" x2="${x}" y2="${SP.t+sph}"/><text x="${x}" y="${SH-8}" text-anchor="middle" style="font-size:9px">${(xMax*i/4).toFixed(0)}%</text>`}
 scatter+=`<text x="${SW/2}" y="${SH-1}" text-anchor="middle" style="font-size:9px;fill:var(--tx3)">Harcama Payı %</text>`;
 scatter+=`<text x="10" y="${SH/2}" text-anchor="middle" transform="rotate(-90,10,${SH/2})" style="font-size:9px;fill:var(--tx3)">Sorgu Payı %</text>`;
-scatterItems.forEach(it=>{
-const cx=SP.l+spw*(it.x/xMax);const cy=SP.t+sph-sph*(it.y/yMax);
-scatter+=`<circle cx="${cx}" cy="${cy}" r="${it.size}" fill="${it.color}" fill-opacity=".7" stroke="${it.color}" stroke-width="1.5"><title>${it.name}\nHarcama: ${it.x.toFixed(1)}%\nSorgu: ${it.y.toFixed(1)}%</title></circle>`;
-scatter+=`<text x="${cx+it.size+3}" y="${cy+3}" style="font-size:8px;fill:var(--tx2)">${it.name}</text>`;
-});
+scatterItems.forEach(it=>{const cx=SP.l+spw*(it.x/xMax);const cy=SP.t+sph-sph*(it.y/yMax);scatter+=`<circle cx="${cx}" cy="${cy}" r="${it.size}" fill="${it.color}" fill-opacity=".7" stroke="${it.color}" stroke-width="1.5"><title>${it.name}\nHarcama: ${it.x.toFixed(1)}%\nSorgu: ${it.y.toFixed(1)}%</title></circle>`;scatter+=`<text x="${cx+it.size+3}" y="${cy+3}" style="font-size:8px;fill:var(--tx2)">${it.name}</text>`});
 scatter+=`</svg>`;
-el.insertAdjacentHTML('beforeend',`<div class="cc">${scatter}</div>`);
-
-// Efficiency narrative
-const overPerf=paid.filter(s=>s.qShare>s.cShare&&s.cost>0);
-const underPerf=paid.filter(s=>s.qShare<s.cShare&&s.cost>0);
-if(overPerf.length||underPerf.length){
-let effText=`<div class="an-prose">`;
-if(overPerf.length)effText+=`<b class="g">Verimli kanallar</b> (çıktı payı > harcama payı): ${overPerf.map(s=>`<b>${s.name}</b> (${s.cShare.toFixed(1)}% harcama → ${s.qShare.toFixed(1)}% sorgu)`).join(', ')}. `;
-if(underPerf.length)effText+=`<b class="r">Verimsiz kanallar</b>: ${underPerf.map(s=>`<b>${s.name}</b> (${s.cShare.toFixed(1)}% → ${s.qShare.toFixed(1)}%)`).join(', ')}.`;
-effText+=`</div>`;
-el.insertAdjacentHTML('beforeend',effText);
-}
-el.insertAdjacentHTML('beforeend',`</div>`);
-
-// === SECTION 3: TRINKSAT DEEP DIVE ===
-el.insertAdjacentHTML('beforeend',`<div class="an-sec">
-<div class="an-head"><div class="an-num">3</div><div><div class="an-ht">Trink Sat Verimlilik Matrisi</div><div class="an-sub">Hangi kanal hangi aşamada verimli — Sorgu CPA vs Randevu CPA vs Volume</div></div></div>`);
-
-// For paid channels with randevu, show bubble: X=Sorgu CPA, Y=Randevu CPA, Size=Randevu count
+el.insertAdjacentHTML('beforeend',`<details class="an-accordion" open><summary>Maliyet Payı vs Çıktı Payı <span class="acc-sub">Çizginin üstü = bütçesinden fazlasını üretiyor | Altı = verimsiz harcama</span></summary><div>${scatter}</div></details>`);
+// KANAL KARŞILAŞTIRMA DETAYI
+el.insertAdjacentHTML('beforeend',`<details class="an-accordion"><summary>Kanal Karşılaştırma Detayı <span class="acc-sub">Skor bileşenleri · CPA matrisi · non-paid kanallar</span></summary><div id="eff-content"></div></details>`);
+const effEl=document.getElementById('eff-content');
+effEl.insertAdjacentHTML('beforeend',`<div class="cc"><div class="cc-h"><div class="cc-t">Skor Bileşenleri (Normalize 0-100)</div></div><div id="sc-detail-tbl"></div></div>`);
+rTbl(document.getElementById('sc-detail-tbl'),[
+{l:'Kanal',k:'ch'},{l:'Skor',k:'sc',n:1},{l:'Tier',k:'tr'},
+{l:'SqCPA',k:'b1',n:1},{l:'RvCPA',k:'b2',n:1},{l:'S→R',k:'b3',n:1},
+{l:'Q Share',k:'b4',n:1},{l:'R Share',k:'b5',n:1},{l:'Scale',k:'b6',n:1},
+{l:'Q→T',k:'b7',n:1},{l:'T→R',k:'b8',n:1},{l:'Tutarlılık',k:'b9',n:1}
+],paid.map(s=>({ch:s.name,sc:s.score,tr:s.tier,b1:s.bars.sqCpa,b2:s.bars.rvCpa,b3:s.bars.s2r,b4:s.bars.qShare,b5:s.bars.rShare,b6:s.bars.scale,b7:s.bars.q2t,b8:s.bars.t2r,b9:s.bars.cv})));
 const tsItems=paid.filter(s=>s.sqCpa&&s.rvCpa&&s.randevu>10);
 if(tsItems.length>1){
-const BW=700,BH=320,BP={t:20,r:16,b:35,l:55};
-const bpw=BW-BP.l-BP.r,bph=BH-BP.t-BP.b;
-// Use log scale for CPA axes
-const xVals=tsItems.map(s=>Math.log10(s.sqCpa));
-const yVals=tsItems.map(s=>Math.log10(s.rvCpa));
-const xMn=Math.min(...xVals)*.95,xMx=Math.max(...xVals)*1.05;
-const yMn=Math.min(...yVals)*.95,yMx=Math.max(...yVals)*1.05;
-const maxR=Math.max(...tsItems.map(s=>s.randevu))||1;
-let bubble=`<svg class="svg-chart" viewBox="0 0 ${BW} ${BH}" preserveAspectRatio="xMidYMid meet">`;
-for(let i=0;i<=4;i++){const y=BP.t+bph-bph*(i/4);const val=Math.pow(10,yMn+(yMx-yMn)*(i/4));bubble+=`<line class="grid-line" x1="${BP.l}" y1="${y}" x2="${BW-BP.r}" y2="${y}"/><text x="${BP.l-6}" y="${y+3}" text-anchor="end" style="font-size:9px">₺${fmt(val)}</text>`}
-for(let i=0;i<=4;i++){const x=BP.l+bpw*(i/4);const val=Math.pow(10,xMn+(xMx-xMn)*(i/4));bubble+=`<line class="grid-line" x1="${x}" y1="${BP.t}" x2="${x}" y2="${BP.t+bph}"/><text x="${x}" y="${BH-8}" text-anchor="middle" style="font-size:9px">₺${fmt(val)}</text>`}
-bubble+=`<text x="${BW/2}" y="${BH-1}" text-anchor="middle" style="font-size:9px;fill:var(--tx3)">Sorgu CPA (log) →</text>`;
-bubble+=`<text x="10" y="${BH/2}" text-anchor="middle" transform="rotate(-90,10,${BH/2})" style="font-size:9px;fill:var(--tx3)">Randevu CPA (log) →</text>`;
-tsItems.forEach(s=>{
-const cx=BP.l+bpw*((Math.log10(s.sqCpa)-xMn)/(xMx-xMn));
-const cy=BP.t+bph-bph*((Math.log10(s.rvCpa)-yMn)/(yMx-yMn));
-const rad=Math.max(6,Math.min(25,Math.sqrt(s.randevu/maxR)*25));
-bubble+=`<circle cx="${cx}" cy="${cy}" r="${rad}" fill="${s.color}" fill-opacity=".5" stroke="${s.color}" stroke-width="1.5"><title>${s.name}\nSorgu CPA: ₺${s.sqCpa.toFixed(0)}\nRandevu CPA: ₺${fmt(s.rvCpa)}\nRandevu: ${ff(s.randevu)}</title></circle>`;
-bubble+=`<text x="${cx}" y="${cy-rad-3}" text-anchor="middle" style="font-size:8px;fill:var(--tx)">${s.name}</text>`;
-});
-bubble+=`</svg>`;
-el.insertAdjacentHTML('beforeend',`<div class="cc"><div class="cc-h"><div class="cc-t">CPA Bubble Chart</div><div class="cc-st">Daire boyutu = Randevu hacmi | Sol alt = ideal (düşük CPA, yüksek hacim)</div></div>${bubble}</div>`);
+  const BW=700,BH=320,BP={t:20,r:16,b:35,l:55};
+  const bpw=BW-BP.l-BP.r,bph=BH-BP.t-BP.b;
+  const xVals=tsItems.map(s=>Math.log10(s.sqCpa));const yVals=tsItems.map(s=>Math.log10(s.rvCpa));
+  const xMn=Math.min(...xVals)*.95,xMx=Math.max(...xVals)*1.05;
+  const yMn=Math.min(...yVals)*.95,yMx=Math.max(...yVals)*1.05;
+  const maxR=Math.max(...tsItems.map(s=>s.randevu))||1;
+  let bubble=`<svg class="svg-chart" viewBox="0 0 ${BW} ${BH}" preserveAspectRatio="xMidYMid meet">`;
+  for(let i=0;i<=4;i++){const y=BP.t+bph-bph*(i/4);const val=Math.pow(10,yMn+(yMx-yMn)*(i/4));bubble+=`<line class="grid-line" x1="${BP.l}" y1="${y}" x2="${BW-BP.r}" y2="${y}"/><text x="${BP.l-6}" y="${y+3}" text-anchor="end" style="font-size:9px">₺${fmt(val)}</text>`}
+  for(let i=0;i<=4;i++){const x=BP.l+bpw*(i/4);const val=Math.pow(10,xMn+(xMx-xMn)*(i/4));bubble+=`<line class="grid-line" x1="${x}" y1="${BP.t}" x2="${x}" y2="${BP.t+bph}"/><text x="${x}" y="${BH-8}" text-anchor="middle" style="font-size:9px">₺${fmt(val)}</text>`}
+  bubble+=`<text x="${BW/2}" y="${BH-1}" text-anchor="middle" style="font-size:9px;fill:var(--tx3)">Sorgu CPA (log) →</text><text x="10" y="${BH/2}" text-anchor="middle" transform="rotate(-90,10,${BH/2})" style="font-size:9px;fill:var(--tx3)">Randevu CPA (log) →</text>`;
+  tsItems.forEach(s=>{const cx=BP.l+bpw*((Math.log10(s.sqCpa)-xMn)/(xMx-xMn));const cy=BP.t+bph-bph*((Math.log10(s.rvCpa)-yMn)/(yMx-yMn));const rad=Math.max(6,Math.min(25,Math.sqrt(s.randevu/maxR)*25));bubble+=`<circle cx="${cx}" cy="${cy}" r="${rad}" fill="${s.color}" fill-opacity=".5" stroke="${s.color}" stroke-width="1.5"><title>${s.name}\nSorgu CPA: ₺${s.sqCpa.toFixed(0)}\nRandevu CPA: ₺${fmt(s.rvCpa)}\nRandevu: ${ff(s.randevu)}</title></circle><text x="${cx}" y="${cy-rad-3}" text-anchor="middle" style="font-size:8px;fill:var(--tx)">${s.name}</text>`});
+  bubble+=`</svg>`;
+  effEl.insertAdjacentHTML('beforeend',`<div class="cc" style="margin-top:12px"><div class="cc-h"><div class="cc-t">Trink Sat Verimlilik Matrisi</div><div class="cc-st">Daire boyutu = Randevu hacmi | Sol alt = ideal</div></div>${bubble}</div>`);
 }
-
-el.insertAdjacentHTML('beforeend',`</div>`);
-
-renderSaturation(el,fm,paid);
+if(nonpaid.length){
+  effEl.insertAdjacentHTML('beforeend',`<div style="font-size:11px;font-weight:600;color:var(--tx3);margin:14px 0 6px;font-family:var(--m)">NON-PAID KANALLAR (maks skor 55)</div><div class="sc-grid" id="sc-nonpaid"></div>`);
+  const npEl=document.getElementById('sc-nonpaid');
+  nonpaid.slice(0,6).forEach(s=>{npEl.insertAdjacentHTML('beforeend',`<div class="sc-card tier-${s.tier.toLowerCase()}"><div class="sc-top"><div class="sc-name"><div class="dot" style="background:${s.color}"></div>${s.name}</div><span class="sc-score" style="color:var(--tx3)">${s.score}</span></div><div class="sc-meta"><div class="sc-meta-item">Session: <b>${fmt(s.sessions)}</b></div><div class="sc-meta-item">Sorgu: <b>${ff(s.sorgu)}</b> (${s.qShare.toFixed(1)}%)</div><div class="sc-meta-item">Randevu: <b>${ff(s.randevu)}</b></div></div></div>`)});
+}
+// BÜTÇE SİMÜLATÖRÜ
+el.insertAdjacentHTML('beforeend',`<details class="an-accordion" open><summary>Bütçe Simülatörü <span class="acc-sub">Hill curve · azalan getiri · projeksiyon</span></summary><div class="no-pad" id="sat-content"></div></details>`);
+renderSaturation(document.getElementById('sat-content'),fm,paid);
 }
 
 function go(){
+// Filtre değişince history cache sıfırla
+window._scoreHistory=null;
+window._scoreHistoryYms=null;
 // Reset scroll position on tab switch
 const ct=document.getElementById('ct');if(ct)ct.scrollTop=0;
 const t=S.tab;
@@ -1573,11 +2171,12 @@ else if(t==='costcpa')renderCostCpa();
 else if(t==='gads')renderGads();
 else if(t==='channels')renderChannels();
 else if(t==='analytics')renderAnalytics();
+else if(t==='analysis')renderAnalysis();
 }
 
 // ============ AI INSIGHT ============
 
-const AI_TAB_LABELS={overview:'Genel Bakış',trinksat:'Trink Sat',listing:'Listing',costcpa:'Cost & CPA',gads:'Google Ads',channels:'Kanal Karşılaştırma',analytics:'Channel IQ'};
+const AI_TAB_LABELS={overview:'Genel Bakış',trinksat:'Trink Sat',listing:'Listing',costcpa:'Cost & CPA',gads:'Google Ads',channels:'Kanal Karşılaştırma',analytics:'Channel IQ',analysis:'Analiz'};
 
 function injectAiBar(el,tab){
 el.insertAdjacentHTML('beforeend',`<div class="ai-bar"><button class="ai-dash-btn" onclick="triggerAiDashboard()">🌐 Tüm Dashboard</button><button class="ai-btn" onclick="triggerAiTab('${tab}')">🔍 AI Analiz</button></div>`);
@@ -1744,12 +2343,392 @@ if(btn)btn.onclick=function(){const v=inp?inp.value.trim():'';if(!v.startsWith('
 
 window.closeAiModal=function(){document.getElementById('aiModalOverlay').classList.remove('on')};
 
+/* ── irgatOS Terminal ── */
+(function(){
+const IROS_SUGGESTIONS=[
+'Hangi kanal geçen ay en iyi CPA\'yı verdi?',
+'RTB House vs Criteo verimliliğini karşılaştır',
+'Brand search CPC neden yükseldi?',
+'Trinksat Sorgu CPA trendi nasıl?',
+'En düşük maliyetli 3 kanalı göster',
+'Meta Ads performansı yorumla',
+];
+
+const IROS_SYS=`Sen irgatOS — arabam.com'un yapay zeka destekli pazarlama veri analisti.
+normalized_daily tablosuna erişimin var: 33.241 satır, Google Ads + Meta Ads + GA4, son 30 gün.
+
+MARKA BAĞLAMI:
+- arabam.com: Türkiye'nin lider araç ilan platformu
+- Ürünler: Trinksat (anında değerleme), listing paketleri, app install
+- KPI'lar: Sorgu → Teklif → UTA → Randevu
+- Para birimi: Türk Lirası (₺)
+
+VERİ SNAPSHOT (simüle):
+Toplam harcama: ₺284.750 | Toplam Sorgu: 1.842 | Blended Sorgu CPA: ₺154,6
+Kanallar:
+- Google Search Brand: ₺42.300 harcama, 620 Sorgu, ₺68 CPA, MoM -%8
+- Google Search Non-Brand: ₺88.600, 510 Sorgu, ₺174 CPA, MoM +%12
+- RTB House: ₺18.200, 244 Sorgu, ₺74,6 CPA, MoM -%15
+- Criteo: ₺54.800, 88 Sorgu, ₺623 CPA, MoM +%43
+- Meta Ads: ₺39.100, 198 Sorgu, ₺197 CPA, MoM +%6
+- Google PMax: ₺41.750, 182 Sorgu, ₺229 CPA, MoM +%9
+Trinksat: Sorgu 3.840 | Teklif 1.220 | UTA 648 | Randevu 312
+Brand CPC: ₺4,82 (geçen ay ₺0,61 idi — 8x artış, şüpheli: otobid.com)
+
+YANIT KURALLARI:
+- Direkt ve analitik ol — önce cevabı ver, sonra açıkla
+- Somut rakamlar kullan
+- Maks 200 kelime
+- Önemli sayıları **bold** yap
+- Anomalileri [!] ile işaretle
+- Her yanıtın sonunda 1 aksiyon önerisi ver
+- Türkçe yaz (soru Türkçeyse), İngilizce yaz (soru İngilizce ise)
+- Kendini "irgatOS" olarak tanıt`;
+
+let irosHistory=[];
+
+function irosAppend(text,cls){
+const out=document.getElementById('irosOutput');
+if(!out)return null;
+const line=document.createElement('div');
+line.className='iros-line '+cls;
+if(cls==='response'){
+line.innerHTML=text
+.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+.replace(/\[!\]/g,'<span style="color:var(--rd);font-weight:700">[!]</span>');
+}else{line.textContent=text}
+out.appendChild(line);
+out.scrollTop=out.scrollHeight;
+return line;
+}
+
+function irosAppendMetrics(){
+const out=document.getElementById('irosOutput');
+if(!out)return;
+const grid=document.createElement('div');
+grid.className='iros-mgrid';
+const channels=[
+{n:'Google Brand',cpa:68,delta:-8},
+{n:'RTB House',cpa:75,delta:-15},
+{n:'Google Non-Brand',cpa:174,delta:12},
+];
+channels.forEach(ch=>{
+const dc=ch.delta<0?'up':'dn';
+const dl=ch.delta<0?'▼ '+Math.abs(ch.delta)+'% MoM':'▲ +'+ch.delta+'% MoM';
+grid.innerHTML+=`<div class="iros-mc"><div class="iros-mc-l">${ch.n}</div><div class="iros-mc-v">₺${ch.cpa}</div><div class="iros-mc-d ${dc}">${dl}</div></div>`;
+});
+out.appendChild(grid);
+out.scrollTop=out.scrollHeight;
+}
+
+async function irosRun(){
+const inp=document.getElementById('irosInput');
+const btn=document.getElementById('irosRunBtn');
+if(!inp||!btn)return;
+const q=inp.value.trim();
+if(!q||btn.disabled)return;
+btn.disabled=true;
+inp.value='';
+
+const out=document.getElementById('irosOutput');
+const spacer=document.createElement('div');spacer.className='iros-line spacer';out.appendChild(spacer);
+irosAppend('irgat $ '+q,'query');
+
+const showMetrics=/kanal|cpa|karşılaştır|rtb|criteo|en iyi|verimli|channel|compare|best/i.test(q);
+const thinkLine=irosAppend('↳ normalized_daily sorgulanıyor...','thinking');
+
+irosHistory.push({role:'user',content:q});
+
+const apiKey=sessionStorage.getItem('ai_key');
+if(!apiKey){
+if(thinkLine)thinkLine.remove();
+irosAppend('API key bulunamadı. Lütfen önce herhangi bir sekmedeki "AI Analiz" butonunu kullanarak key girin.','err');
+btn.disabled=false;return;
+}
+
+try{
+const res=await fetch('https://api.anthropic.com/v1/messages',{
+method:'POST',
+headers:{'x-api-key':apiKey,'anthropic-version':'2023-06-01','content-type':'application/json','anthropic-dangerous-direct-browser-access':'true'},
+mode:'cors',
+body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1024,system:IROS_SYS,messages:irosHistory})
+});
+const data=await res.json();
+if(thinkLine)thinkLine.remove();
+if(data.error){
+irosAppend('Hata: '+data.error.message,'err');
+}else{
+const reply=data.content?.[0]?.text||'Yanıt alınamadı';
+irosHistory.push({role:'assistant',content:reply});
+if(showMetrics)irosAppendMetrics();
+irosAppend(reply,'response');
+}
+}catch(e){
+if(thinkLine)thinkLine.remove();
+irosAppend('Bağlantı hatası: '+e.message,'err');
+}
+btn.disabled=false;
+if(inp)inp.focus();
+}
+
+function irosRender(){
+const tab=document.getElementById('t-irgatos');
+if(!tab||tab.dataset.irosInit)return;
+tab.dataset.irosInit='1';
+
+tab.innerHTML=`
+<div class="iros-wrap">
+<div class="iros-shell">
+<div class="iros-header">
+<div class="iros-dots">
+<div class="iros-dot" style="background:#E24B4A"></div>
+<div class="iros-dot" style="background:#EF9F27"></div>
+<div class="iros-dot" style="background:#639922"></div>
+</div>
+<div class="iros-title">irgatOS — query terminal v0.1</div>
+<div class="iros-status"><div class="iros-status-dot"></div><span>claude-sonnet bağlı</span></div>
+</div>
+<div class="iros-meta">
+<div class="iros-meta-item"><span>marka</span><span>arabam.com</span></div>
+<div class="iros-meta-item" id="irosDateMeta" style="cursor:pointer;user-select:none" onclick="irosTogglePicker()"><span>dönem</span><span id="irosDateLabel" style="font-weight:500">son 30 gün</span><svg viewBox="0 0 8 5" width="8" height="5" style="margin-left:5px;opacity:.5;flex-shrink:0"><path d="M0 0l4 5 4-5z" fill="rgba(255,255,255,.7)"/></svg></div>
+<div class="iros-meta-item"><span>platformlar</span><span>
+<span class="iros-pb google">Google Ads</span>&nbsp;
+<span class="iros-pb meta">Meta Ads</span>&nbsp;
+<span class="iros-pb ga4">GA4</span>
+</span></div>
+<div class="iros-meta-item" style="border-right:none;margin-left:auto"><span>satır</span><span>33.241</span></div>
+</div>
+<div id="irosPickerWrap" style="display:none;background:#1E293B;border-bottom:1px solid rgba(255,255,255,.08);position:relative;z-index:10">
+<div style="display:flex;align-items:flex-start">
+<div style="padding:8px 0;border-right:1px solid rgba(255,255,255,.08);min-width:128px;flex-shrink:0" id="irosPresets"></div>
+<div style="padding:12px 16px;flex:1">
+<div style="display:flex;gap:16px" id="irosCals"></div>
+<div style="display:flex;align-items:center;gap:10px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08)">
+<span style="font-family:var(--m);font-size:10px;color:rgba(255,255,255,.35)">seçilen:</span>
+<span id="irosRangeDisplay" style="font-family:var(--m);font-size:11px;color:rgba(255,255,255,.65);flex:1">—</span>
+<button onclick="irosApplyRange()" id="irosApplyBtn" style="font-family:var(--m);font-size:11px;background:#3B5BDB;color:#fff;border:none;border-radius:5px;padding:5px 14px;cursor:pointer;font-weight:600;opacity:.5" disabled>Uygula</button>
+<button onclick="irosTogglePicker()" style="font-family:var(--m);font-size:11px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.4);border:none;border-radius:5px;padding:5px 10px;cursor:pointer">İptal</button>
+</div>
+</div>
+</div>
+</div>
+<div class="iros-sugg" id="irosSugg">
+<span class="iros-sugg-lbl">dene →</span>
+</div>
+<div class="iros-output" id="irosOutput"></div>
+<div class="iros-input-row">
+<span class="iros-prompt">irgat $</span>
+<input class="iros-input" id="irosInput" placeholder="pazarlama veriniz hakkında herhangi bir şey sorun..." />
+<button class="iros-run" id="irosRunBtn">⏎ çalıştır</button>
+</div>
+</div>
+</div>
+</div>`;
+
+// ── irgatOS Date Picker ──
+let irosPickerOpen=false;
+let irosSelStart=null,irosSelEnd=null,irosHover=null;
+let irosCalYear,irosCalMonth;
+const TODAY=new Date();
+TODAY.setHours(0,0,0,0);
+
+function irosDateStr(d){return d.toLocaleDateString('tr-TR',{day:'2-digit',month:'2-digit',year:'numeric'})}
+function irosAddDays(d,n){const r=new Date(d);r.setDate(r.getDate()+n);return r}
+function irosFmt(d){const y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),dd=String(d.getDate()).padStart(2,'0');return`${dd}.${m}.${y}`}
+
+window.irosTogglePicker=function(){
+irosPickerOpen=!irosPickerOpen;
+const wrap=document.getElementById('irosPickerWrap');
+if(!wrap)return;
+wrap.style.display=irosPickerOpen?'block':'none';
+if(irosPickerOpen){
+irosCalYear=TODAY.getFullYear();irosCalMonth=TODAY.getMonth();
+irosRenderPresets();irosRenderCals();
+}
+}
+
+window.irosRenderPresets=function(){
+const el=document.getElementById('irosPresets');
+if(!el)return;
+const presets=[
+{l:'Son 7 gün',fn:()=>[irosAddDays(TODAY,-6),TODAY]},
+{l:'Son 14 gün',fn:()=>[irosAddDays(TODAY,-13),TODAY]},
+{l:'Son 30 gün',fn:()=>[irosAddDays(TODAY,-29),TODAY]},
+{l:'Son 90 gün',fn:()=>[irosAddDays(TODAY,-89),TODAY]},
+{l:'Bu ay',fn:()=>{const s=new Date(TODAY.getFullYear(),TODAY.getMonth(),1);return[s,TODAY]}},
+{l:'Geçen ay',fn:()=>{const s=new Date(TODAY.getFullYear(),TODAY.getMonth()-1,1);const e=new Date(TODAY.getFullYear(),TODAY.getMonth(),0);return[s,e]}},
+];
+el.innerHTML=presets.map(p=>`<div class="iros-preset" onclick="irosApplyPreset(${JSON.stringify(p.l)})">${p.l}</div>`).join('');
+window._irosPresets=presets;
+}
+
+window.irosApplyPreset=function(label){
+const p=window._irosPresets.find(x=>x.l===label);
+if(!p)return;
+const [s,e]=p.fn();
+irosSelStart=s;irosSelEnd=e;irosHover=null;
+irosUpdateRangeDisplay();
+irosRenderCals();
+// auto-apply
+setTimeout(irosApplyRange,80);
+};
+
+window.irosRenderCals=function(){
+const el=document.getElementById('irosCals');
+if(!el)return;
+// Show 2 months: prev and current
+const m1={y:irosCalYear,m:irosCalMonth===0?11:irosCalMonth-1};
+if(irosCalMonth===0)m1.y--;
+const m2={y:irosCalYear,m:irosCalMonth};
+el.innerHTML=`<div>${irosRenderMonth(m1.y,m1.m)}</div><div>${irosRenderMonth(m2.y,m2.m)}</div>`;
+// Attach hover listeners
+el.querySelectorAll('.iros-cal-day[data-d]').forEach(cell=>{
+cell.addEventListener('mouseenter',()=>{
+if(irosSelStart&&!irosSelEnd){irosHover=new Date(cell.dataset.d);irosHighlightRange();}
+});
+cell.addEventListener('click',()=>{
+const d=new Date(cell.dataset.d);
+if(!irosSelStart||irosSelEnd){irosSelStart=d;irosSelEnd=null;irosHover=null;}
+else{
+if(d<irosSelStart){irosSelEnd=irosSelStart;irosSelStart=d;}
+else{irosSelEnd=d;}
+irosHover=null;
+irosUpdateRangeDisplay();
+const applyBtn=document.getElementById('irosApplyBtn');
+if(applyBtn){applyBtn.disabled=false;applyBtn.style.opacity='1';}
+}
+irosHighlightRange();
+});
+});
+// Nav buttons
+const navBtns=el.querySelectorAll('.iros-cal-nav');
+navBtns.forEach(btn=>{
+btn.addEventListener('click',()=>{
+const dir=parseInt(btn.dataset.dir);
+irosCalMonth+=dir;
+if(irosCalMonth>11){irosCalMonth=0;irosCalYear++;}
+if(irosCalMonth<0){irosCalMonth=11;irosCalYear--;}
+irosRenderCals();
+});
+});
+}
+
+window.irosRenderMonth=function(y,m){
+const monthNames=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+const dayNames=['Pt','Sa','Ça','Pe','Cu','Ct','Pz'];
+const firstDay=new Date(y,m,1).getDay();
+const offset=(firstDay+6)%7; // Mon-start
+const daysInMonth=new Date(y,m+1,0).getDate();
+let html=`<div style="min-width:196px">`;
+html+=`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">`;
+html+=`<button class="iros-cal-nav" data-dir="-1" style="background:none;border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:14px;padding:2px 6px">‹</button>`;
+html+=`<span style="font-family:var(--m);font-size:11px;font-weight:600;color:rgba(255,255,255,.8)">${monthNames[m]} ${y}</span>`;
+html+=`<button class="iros-cal-nav" data-dir="1" style="background:none;border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:14px;padding:2px 6px">›</button>`;
+html+=`</div>`;
+html+=`<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:1px">`;
+dayNames.forEach(d=>{html+=`<div style="text-align:center;font-family:var(--m);font-size:9px;color:rgba(255,255,255,.3);padding:3px 0;font-weight:600">${d}</div>`;});
+for(let i=0;i<offset;i++)html+=`<div></div>`;
+for(let d=1;d<=daysInMonth;d++){
+const date=new Date(y,m,d);
+const ds=date.toISOString().split('T')[0];
+const isToday=date.getTime()===TODAY.getTime();
+const isFuture=date>TODAY;
+html+=`<div class="iros-cal-day" data-d="${ds}" style="text-align:center;font-family:var(--m);font-size:10px;padding:4px 2px;border-radius:3px;cursor:${isFuture?'default':'pointer'};color:${isFuture?'rgba(255,255,255,.2)':'rgba(255,255,255,.75)'};${isToday?'font-weight:700;color:rgba(255,255,255,.95)':''}">${d}</div>`;
+}
+html+=`</div></div>`;
+return html;
+}
+
+window.irosHighlightRange=function(){
+const start=irosSelStart;
+const end=irosSelEnd||(irosHover&&irosSelStart?irosHover:null);
+document.querySelectorAll('.iros-cal-day[data-d]').forEach(cell=>{
+const d=new Date(cell.dataset.d);
+let bg='';
+if(start&&d.getTime()===start.getTime())bg='#3B5BDB';
+else if(end&&d.getTime()===end.getTime())bg='#3B5BDB';
+else if(start&&end&&d>Math.min(start,end)&&d<Math.max(start,end))bg='rgba(59,91,219,.25)';
+cell.style.background=bg;
+cell.style.color=bg==='#3B5BDB'?'#fff':'';
+});
+}
+
+window.irosUpdateRangeDisplay=function(){
+const el=document.getElementById('irosRangeDisplay');
+if(!el)return;
+if(irosSelStart&&irosSelEnd){
+el.textContent=irosFmt(irosSelStart)+' – '+irosFmt(irosSelEnd);
+}else if(irosSelStart){
+el.textContent=irosFmt(irosSelStart)+' → ...';
+}else{el.textContent='—';}
+}
+
+window.irosApplyRange=function(){
+if(!irosSelStart)return;
+const s=irosSelStart;
+const e=irosSelEnd||irosSelStart;
+const label=irosFmt(s)+' – '+irosFmt(e);
+const el=document.getElementById('irosDateLabel');
+if(el)el.textContent=label;
+// Update system context date
+window._irosDateRange={start:s,end:e,label};
+// Notify in terminal
+const out=document.getElementById('irosOutput');
+if(out){
+const line=document.createElement('div');
+line.className='iros-line sys';
+line.textContent='↳ dönem güncellendi: '+label;
+out.appendChild(line);out.scrollTop=out.scrollHeight;
+}
+irosPickerOpen=false;
+const wrap=document.getElementById('irosPickerWrap');
+if(wrap)wrap.style.display='none';
+};
+
+// Close picker on outside click
+document.addEventListener('click',function(e){
+if(!irosPickerOpen)return;
+const wrap=document.getElementById('irosPickerWrap');
+const meta=document.getElementById('irosDateMeta');
+if(wrap&&meta&&!wrap.contains(e.target)&&!meta.contains(e.target)){
+irosPickerOpen=false;wrap.style.display='none';
+}
+});
+
+IROS_SUGGESTIONS.forEach(s=>{
+const btn=document.createElement('button');
+btn.className='iros-sugg-btn';btn.textContent=s;
+btn.onclick=()=>{const inp=document.getElementById('irosInput');if(inp){inp.value=s;inp.focus();}};
+document.getElementById('irosSugg').appendChild(btn);
+});
+
+document.getElementById('irosRunBtn').addEventListener('click',irosRun);
+document.getElementById('irosInput').addEventListener('keydown',e=>{if(e.key==='Enter')irosRun();});
+
+const out=document.getElementById('irosOutput');
+function sysLine(t){const d=document.createElement('div');d.className='iros-line sys';d.textContent=t;out.appendChild(d);}
+function sp(){const d=document.createElement('div');d.className='iros-line spacer';out.appendChild(d);}
+sysLine('irgatOS v0.1 — normalized_daily yüklendi (33.241 satır)');
+sysLine('marka: arabam.com | dönem: 2026-02-25 → 2026-03-27');
+sysLine('platformlar: google_ads, meta_ads, ga4 | model: claude-sonnet-4-20250514');
+sp();
+const hint=document.createElement('div');
+hint.className='iros-line thinking';
+hint.textContent='Hazır. Soru yazın veya yukarıdan bir öneri seçin.';
+out.appendChild(hint);
+}
+
+window._irosRender=irosRender;
+})();
+
+
 window.triggerAiTab=function(tab){
 openAiModal('AI Analiz — '+(AI_TAB_LABELS[tab]||tab),buildTabPayload(tab));
 };
 
 window.triggerAiDashboard=function(){
-if(!window._lastScores){window._lastScores=calcScores(aCh(fM(M)))}
+if(!window._lastScores){window._lastScores=calcScoresV2(aChPrPl(fM(M)))}
 openAiModal('Tüm Dashboard Özeti',buildDashboardPayload());
 };
 
